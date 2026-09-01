@@ -259,9 +259,9 @@
         <span class="pnum">01</span>
         <span class="phead">
           <h3>ChefTaxi CRM</h3>
-          <span class="ptag"><span data-lang="en">AI operations platform for a taxi fleet — built solo, end-to-end</span><span data-lang="ru">AI-платформа управления таксопарком — соло, под ключ</span></span>
+          <span class="ptag"><span data-lang="en">The operating system for a taxi fleet — fleet, drivers, investors, finance, hiring, fuel &amp; service. Built solo, 200K+ lines in 6 months.</span><span data-lang="ru">Операционная система таксопарка — парк, водители, инвесторы, финансы, найм, топливо и сервис. Соло, 200K+ строк за 6 месяцев.</span></span>
           <span class="pmeta">
-            <span class="badge">200K+ LOC</span><span class="badge">5 apps</span><span class="badge">8 bots</span><span class="badge">4 API integrations</span><span class="badge"><span data-lang="en">production</span><span data-lang="ru">прод</span></span>
+            <span class="badge">200K+ LOC <span data-lang="en">solo</span><span data-lang="ru">соло</span></span><span class="badge">6 <span data-lang="en">months</span><span data-lang="ru">месяцев</span></span><span class="badge">6 PWA <span data-lang="en">portals</span><span data-lang="ru">порталов</span></span><span class="badge">8 Telegram <span data-lang="en">bots</span><span data-lang="ru">ботов</span></span><span class="badge">Yandex · Bolt · LETZ · BPay</span><span class="badge"><span data-lang="en">real-time dashboard</span><span data-lang="ru">real-time дашборд</span></span>
           </span>
         </span>
         <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -269,61 +269,99 @@
       <div class="pbody">
         <div class="pbody-grid">
           <div class="narr">
-            <p data-lang="en">A complete operating system for a Chișinău taxi fleet — <strong>200,000+ lines across web, backend and mobile in six months, alone</strong>. It runs the business day-to-day: dispatch, drivers, finance, hiring, fuel and vehicle service, with AI woven through the whole automation layer.</p>
-            <p data-lang="ru">Полная операционная система таксопарка в Кишинёве — <strong>200 000+ строк в вебе, бэкенде и мобилке за шесть месяцев, в одиночку</strong>. Ведёт бизнес каждый день: диспетчерская, водители, финансы, найм, топливо и автосервис, с AI по всему слою автоматизации.</p>
+            <p data-lang="en">The operating system for a Chișinău taxi fleet — I built the whole thing alone, <strong>200,000+ lines across web, backend and mobile in six months</strong>. It runs the business end-to-end: the fleet and its maintenance, drivers and investors, contracts and accounting, hiring, fuel and vehicle service — <strong>six role-based portals</strong> over one Flask + Vue backend, with <strong>~27 backend modules</strong>.</p>
+            <p data-lang="ru">Операционная система таксопарка в Кишинёве — построил всё в одиночку, <strong>200 000+ строк в вебе, бэкенде и мобилке за шесть месяцев</strong>. Ведёт бизнес под ключ: парк и его обслуживание, водители и инвесторы, контракты и бухгалтерия, найм, топливо и автосервис — <strong>шесть ролевых порталов</strong> над единым Flask + Vue бэкендом, <strong>~27 backend-модулей</strong>.</p>
+
             <div class="feat">
-              <h4><span data-lang="en">Apps &amp; portals — 5</span><span data-lang="ru">Приложения и порталы — 5</span></h4>
+              <h4><span data-lang="en">Fleet, cars &amp; maintenance</span><span data-lang="ru">Парк, авто и ТО</span></h4>
               <ul>
-                <li data-lang="en"><b>Admin CRM</b> — dispatch, fleet, finance, drivers, accountability</li>
-                <li data-lang="ru"><b>Админ-CRM</b> — диспетчерская, парк, финансы, водители, подотчёт</li>
-                <li data-lang="en"><b>Driver PWA</b> — shifts, balance, debts, documents, messages</li>
-                <li data-lang="ru"><b>PWA водителя</b> — смены, баланс, долги, документы, сообщения</li>
-                <li data-lang="en"><b>Manager &amp; curator PWA</b> — team, tasks, rewards</li>
-                <li data-lang="ru"><b>PWA менеджера и куратора</b> — команда, задачи, награды</li>
-                <li data-lang="en"><b>Onboarding portal</b> — candidate intake &amp; document control</li>
-                <li data-lang="ru"><b>Портал онбординга</b> — приём кандидатов и контроль документов</li>
-                <li data-lang="en"><b>Service &amp; paint-shop portal</b> — repairs, car service, expenses</li>
-                <li data-lang="ru"><b>Портал сервиса и малярки</b> — ремонт, автосервис, расходы</li>
+                <li data-lang="en"><b>Fleet register</b> (~255 cars) — car cards with media, odometer, status and full history</li>
+                <li data-lang="ru"><b>Реестр парка</b> (~255 авто) — карточки с медиа, пробегом, статусом и полной историей</li>
+                <li data-lang="en"><b>Maintenance regulation</b> — 10 service procedures with status <b>auto-computed from mileage</b> (overdue / soon / upcoming), a service log and waybills</li>
+                <li data-lang="ru"><b>Регламент ТО</b> — 10 процедур со статусом, <b>авто-рассчитанным от пробега</b> (просрочено / скоро / предстоит), журнал обслуживания и путевые листы</li>
               </ul>
             </div>
+
             <div class="feat">
-              <h4><span data-lang="en">Telegram bots — 8</span><span data-lang="ru">Telegram-боты — 8</span></h4>
+              <h4><span data-lang="en">Drivers &amp; investors</span><span data-lang="ru">Водители и инвесторы</span></h4>
               <ul>
-                <li data-lang="en">Fuel (NowOil), team, marketplace, curator, tasker/documents, e-CEK receipts, onboarding and notification bots — each tied into the CRM</li>
-                <li data-lang="ru">Топливо (NowOil), команда, маркетплейс, куратор, задачи/документы, e-CEK чеки, онбординг и уведомления — каждый завязан на CRM</li>
+                <li data-lang="en"><b>Driver PWA</b> — a clickable work-schedule calendar, a running income scale with a <b>12% surplus threshold</b>, balance, debts, and personal + broadcast messages</li>
+                <li data-lang="ru"><b>PWA водителя</b> — кликабельный календарь графика, бегущая шкала дохода с <b>порогом сверхприбыли 12%</b>, баланс, долги, личные и broadcast-сообщения</li>
+                <li data-lang="en"><b>Investor portal</b> — <b>3 tax models</b> (individual 12% / company 0% / locator-driver), a wallet (balance, earned, withdrawn, tax, transactions), ROI, and per-car monthly income &amp; expenses</li>
+                <li data-lang="ru"><b>Портал инвестора</b> — <b>3 налоговых модели</b> (физлицо 12% / юрлицо 0% / частник-локатор), кошелёк (баланс, заработано, выведено, налог, транзакции), ROI и помесячные доходы/расходы по каждому авто</li>
               </ul>
             </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Contracts &amp; accounting</span><span data-lang="ru">Контракты и бухгалтерия</span></h4>
+              <ul>
+                <li data-lang="en"><b>Contract generation</b> — 9 sections + 5 annexes (hand-over act, order, power of attorney, termination, personal-use statement), a registry with auto-numbering, PDF</li>
+                <li data-lang="ru"><b>Генерация контрактов</b> — 9 разделов + 5 приложений (акт приёма-передачи, приказ, доверенность, резилиере, заявление), реестр с автонумерацией, PDF</li>
+                <li data-lang="en"><b>Accountant auto-tasks</b> from each month's data (driver tax, fixed costs, investor payout, income tax, salary taxes) — each with a <b>bank-payment CSV</b> for Procredit / Victoriabank</li>
+                <li data-lang="ru"><b>Автозадачи бухгалтера</b> из данных месяца (налог водителя, фикс. расходы, выплата инвестору, НДФЛ, налоги с ЗП) — каждая с <b>банковским CSV</b> для Procredit / Victoriabank</li>
+                <li data-lang="en">BPay payments, accountable funds and <b>e-CEK</b> receipts (Bolt / Yandex / Letz)</li>
+                <li data-lang="ru">Платежи BPay, подотчётные средства и <b>e-CEK</b> чеки (Bolt / Yandex / Letz)</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Hiring &amp; HR</span><span data-lang="ru">Найм и HR</span></h4>
+              <ul>
+                <li data-lang="en"><b>Candidate pipeline</b> auto-parsed from job boards → hire assigns the next contract number → document control</li>
+                <li data-lang="ru"><b>Воронка кандидатов</b> с авто-парсингом с job-бордов → найм присваивает следующий номер контракта → контроль документов</li>
+                <li data-lang="en"><b>Employee cards</b> (documents, photos), curators &amp; rewards, and an HR activity feed</li>
+                <li data-lang="ru"><b>Карточки сотрудников</b> (документы, фото), кураторы и награды, HR-лента активности</li>
+              </ul>
+            </div>
+
             <div class="feat">
               <h4><span data-lang="en">Automation &amp; AI</span><span data-lang="ru">Автоматизация и AI</span></h4>
               <ul>
-                <li data-lang="en"><b>Playwright</b> automation of Bolt Fleet + <b>Groq Vision (Llama 4)</b> solving captchas</li>
-                <li data-lang="ru"><b>Playwright</b>-автоматизация Bolt Fleet + <b>Groq Vision (Llama 4)</b> для капчи</li>
-                <li data-lang="en">Scheduler running AI jobs — document reminders, candidate parsing from job boards, call parsing, fuel-auth monitoring, curator rewards</li>
-                <li data-lang="ru">Планировщик с AI-джобами — ремайндеры документов, парсинг кандидатов с job-бордов, разбор звонков, мониторинг топливной авторизации, награды кураторам</li>
-                <li data-lang="en">Persistent browser sessions (NowOil / Avante) for fuel accounting</li>
-                <li data-lang="ru">Постоянные браузер-сессии (NowOil / Avante) для учёта топлива</li>
+                <li data-lang="en"><b>Playwright</b> drives the Bolt Fleet portal by itself + <b>Groq Vision (Llama 4)</b> solves the captchas</li>
+                <li data-lang="ru"><b>Playwright</b> сам водит портал Bolt Fleet + <b>Groq Vision (Llama 4)</b> решает капчи</li>
+                <li data-lang="en"><b>Scheduler jobs</b> — document reminders, candidate &amp; call parsing, birthday greetings, curator rewards, fuel-auth monitoring</li>
+                <li data-lang="ru"><b>Джобы планировщика</b> — ремайндеры документов, парсинг кандидатов и звонков, поздравления с ДР, награды кураторам, мониторинг топливной авторизации</li>
+                <li data-lang="en"><b>Persistent fuel browser sessions</b> (NowOil / Avante) + <b>8 Telegram bots</b> (fuel, team, marketplace, curator, tasker, e-CEK, onboarding, notifications) tied into the CRM</li>
+                <li data-lang="ru"><b>Постоянные браузер-сессии топлива</b> (NowOil / Avante) + <b>8 Telegram-ботов</b> (топливо, команда, маркетплейс, куратор, задачи, e-CEK, онбординг, уведомления), завязанных на CRM</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Platform &amp; real-time</span><span data-lang="ru">Платформа и real-time</span></h4>
+              <ul>
+                <li data-lang="en"><b>6 role-based PWA portals</b> over one JWT-secured Flask + Vue 3 backend (~27 modules)</li>
+                <li data-lang="ru"><b>6 ролевых PWA-порталов</b> над единым Flask + Vue 3 бэкендом с JWT (~27 модулей)</li>
+                <li data-lang="en"><b>Live dashboard</b> — stats and an activity feed aggregated from <b>12 sources</b>, refreshed every 60s</li>
+                <li data-lang="ru"><b>Live-дашборд</b> — статистика и лента активности из <b>12 источников</b>, обновление каждые 60с</li>
+                <li data-lang="en"><b>Production</b> — Caddy + Linux VPS + MySQL, NSSM service supervision, Docker, one-click deploy from a desktop Studio</li>
+                <li data-lang="ru"><b>Прод</b> — Caddy + Linux VPS + MySQL, NSSM-надзор сервисов, Docker, деплой в один клик из десктоп-Studio</li>
               </ul>
             </div>
           </div>
           <div class="aside">
             <div class="facts">
               <dl>
-                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · lead engineer</span><span data-lang="ru">Соло · lead engineer</span></dd>
-                <dt><span data-lang="en">Period</span><span data-lang="ru">Период</span></dt><dd>2025 — 2026 · 6 mo</dd>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · lead</span><span data-lang="ru">Соло · lead</span></dd>
+                <dt><span data-lang="en">Period</span><span data-lang="ru">Период</span></dt><dd>2025—2026 · 6 mo</dd>
                 <dt><span data-lang="en">Scale</span><span data-lang="ru">Масштаб</span></dt><dd><b>200K+</b> LOC</dd>
-                <dt><span data-lang="en">Integrations</span><span data-lang="ru">Интеграции</span></dt><dd>Yandex Pro · Bolt Fleet · LETZ · BPay</dd>
+                <dt><span data-lang="en">Portals</span><span data-lang="ru">Порталов</span></dt><dd><b>6</b></dd>
+                <dt><span data-lang="en">Bots</span><span data-lang="ru">Ботов</span></dt><dd><b>8</b></dd>
+                <dt><span data-lang="en">Integrations</span><span data-lang="ru">Интеграции</span></dt><dd>Yandex · Bolt · LETZ · BPay</dd>
               </dl>
             </div>
             <div>
               <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
-              <div class="chips"><span class="chip">Vue 3</span><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">Linux</span><span class="chip">Telegram API</span><span class="chip">Playwright</span><span class="chip">Groq</span><span class="chip">APScheduler</span></div>
+              <div class="chips"><span class="chip">Vue 3</span><span class="chip">Flask</span><span class="chip">SQLAlchemy</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">Linux</span><span class="chip">PWA</span><span class="chip">Telegram API</span><span class="chip">Playwright</span><span class="chip">Groq</span><span class="chip">APScheduler</span><span class="chip">JWT</span><span class="chip">NSSM</span></div>
             </div>
           </div>
         </div>
         <div class="shots">
-          <div class="shot"><span class="cap">CRM · dispatch board</span></div>
-          <div class="shot"><span class="cap">Driver PWA · balance</span></div>
-          <div class="shot"><span class="cap">Telegram bot · fuel log</span></div>
+          <div class="shot"><span class="cap">Live dashboard</span></div>
+          <div class="shot"><span class="cap">Car card · maintenance</span></div>
+          <div class="shot"><span class="cap">Driver PWA · income scale</span></div>
+          <div class="shot"><span class="cap">Investor wallet · ROI</span></div>
+          <div class="shot"><span class="cap">Contract generation</span></div>
+          <div class="shot"><span class="cap">Hiring pipeline</span></div>
         </div>
       </div>
     </details>
