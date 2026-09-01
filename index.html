@@ -134,6 +134,31 @@
   .shot .cap{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
   .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
+  /* ---------- architecture diagrams ---------- */
+  .arch{margin-top:24px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);padding:16px 16px 18px}
+  .arch-cap{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .arch-cap::before{content:"◇";color:var(--accent)}
+  .layer{display:grid;grid-template-columns:118px 1fr;gap:16px;align-items:center;padding:11px 0}
+  .layer .ll{font-family:var(--f-mono);font-size:.63rem;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);line-height:1.3}
+  .layer .nodes{display:flex;flex-wrap:wrap;gap:7px}
+  .node{font-family:var(--f-mono);font-size:.71rem;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--ink);white-space:nowrap}
+  .node.hi{border-color:var(--accent);color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 9%,var(--surface));font-weight:600}
+  .arch-sep{height:0;border-top:1px dashed var(--line);position:relative;margin:2px 0}
+  .arch-sep::after{content:"↓";position:absolute;left:52px;top:-11px;font-size:.85rem;color:var(--line-strong);background:var(--surface-2);padding:0 5px}
+  @media(max-width:600px){.layer{grid-template-columns:1fr;gap:6px}.arch-sep::after{left:14px}}
+
+  /* ---------- flow pipeline ---------- */
+  .flow{margin-top:24px;display:flex;flex-wrap:wrap;align-items:stretch;gap:0}
+  .flow .step{flex:1 1 128px;min-width:128px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:12px 13px}
+  .flow .step.hi{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface-2))}
+  .flow .step .st{font-family:var(--f-display);font-weight:700;font-size:.9rem;line-height:1.2}
+  .flow .step .sd{font-family:var(--f-mono);font-size:.63rem;color:var(--muted);margin-top:5px;line-height:1.45}
+  .flow .arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.05rem;padding:0 3px;flex:0 0 auto}
+  .flow-note{margin-top:10px;font-family:var(--f-mono);font-size:.64rem;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .flow-note::before{content:"●";color:var(--accent);font-size:.6rem}
+  @media(max-width:620px){.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);padding:5px 0}}
+  @media print{.node,.flow .step{break-inside:avoid}}
+
   /* ---------- compact more-projects ---------- */
   .grid-more{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
   .mcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
@@ -403,13 +428,35 @@
             </div>
           </div>
         </div>
-        <div class="shots">
-          <div class="shot"><span class="cap">Live dashboard</span></div>
-          <div class="shot"><span class="cap">Car card · maintenance</span></div>
-          <div class="shot"><span class="cap">Driver PWA · dashboard</span></div>
-          <div class="shot"><span class="cap">Hiring kanban</span></div>
-          <div class="shot"><span class="cap">Onboarding · document AI</span></div>
-          <div class="shot"><span class="cap">Vehicle release</span></div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">System architecture · six portals over one backend</span><span data-lang="ru">Архитектура системы · шесть порталов над одним бэкендом</span></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Portals</span><span data-lang="ru">Порталы</span></div>
+            <div class="nodes">
+              <span class="node">Fleet CRM /d</span><span class="node">Driver PWA</span><span class="node">Investor</span><span class="node">Paint shop</span><span class="node">Car service</span><span class="node">Onboarding</span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Backend</span><span data-lang="ru">Бэкенд</span></div>
+            <div class="nodes">
+              <span class="node hi">Flask + Vue · ~27 <span data-lang="en">modules</span><span data-lang="ru">модулей</span></span><span class="node">JWT</span><span class="node">APScheduler</span><span class="node">8 Telegram <span data-lang="en">bots</span><span data-lang="ru">ботов</span></span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Integrations</span><span data-lang="ru">Интеграции</span></div>
+            <div class="nodes">
+              <span class="node hi">Yandex Fleet API</span><span class="node hi">Bolt Fleet · Playwright + Groq Vision</span><span class="node">LETZ</span><span class="node">BPay</span><span class="node">Linia <span data-lang="en">fuel</span><span data-lang="ru">топливо</span></span><span class="node">Bank CSV</span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Data &amp; ops</span><span data-lang="ru">Данные и инфра</span></div>
+            <div class="nodes">
+              <span class="node">MySQL</span><span class="node">Docker · Caddy · Linux</span><span class="node hi">real-time /live <span data-lang="en">dashboard</span><span data-lang="ru">дашборд</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </details>
@@ -518,13 +565,45 @@
             </div>
           </div>
         </div>
-        <div class="shots">
-          <div class="shot"><span class="cap">Case → Word act</span></div>
-          <div class="shot"><span class="cap">Law base · lex mitior</span></div>
-          <div class="shot"><span class="cap">Case-law search · ranking</span></div>
-          <div class="shot"><span class="cap">Whole-case analysis</span></div>
-          <div class="shot"><span class="cap">Hearings from Gmail</span></div>
-          <div class="shot"><span class="cap">e-signature (MoldSign)</span></div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · from case file to a signed act, 100% offline</span><span data-lang="ru">Пайплайн · от материалов дела к подписанному акту, 100% офлайн</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Case intake</span><span data-lang="ru">Приём дела</span></div>
+              <div class="sd">penal · civil · contravențional · administrativ</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st">GreyClaude</div>
+              <div class="sd"><span data-lang="en">headless-Claude engine · 0 API cost · switch to API</span><span data-lang="ru">headless-Claude движок · 0 API-затрат · тумблер на API</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Legal RAG</span><span data-lang="ru">Правовой RAG</span></div>
+              <div class="sd"><span data-lang="en">all MD law · 799+ versions (lex mitior) · 6985 decisions</span><span data-lang="ru">всё право MD · 799+ редакций (lex mitior) · 6985 решений</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Whole-case analysis</span><span data-lang="ru">Анализ всего дела</span></div>
+              <div class="sd"><span data-lang="en">finds procedural violations</span><span data-lang="ru">ищет процессуальные нарушения</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Generate act</span><span data-lang="ru">Генерация акта</span></div>
+              <div class="sd"><span data-lang="en">5 types: recurs · apel · contestație · plângere · cerere</span><span data-lang="ru">5 типов: recurs · apel · contestație · plângere · cerere</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st">MoldSign</div>
+              <div class="sd"><span data-lang="en">PAdES e-signature · SafeNet eToken</span><span data-lang="ru">е-подпись PAdES · SafeNet eToken</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Archive</span><span data-lang="ru">Архив</span></div>
+              <div class="sd"><span data-lang="en">auto-numbered · auto-filed</span><span data-lang="ru">автонумерация · авто-подшивка</span></div>
+            </div>
+          </div>
+          <div class="flow-note"><span data-lang="en">Russian interface → Romanian documents — a bridge for Gagauzia. Days of work compressed into minutes.</span><span data-lang="ru">Русский интерфейс → румынские документы — мост для Гагаузии. Дни работы сжаты в минуты.</span></div>
         </div>
       </div>
     </details>
@@ -573,11 +652,34 @@
             </div>
           </div>
         </div>
-        <div class="shots">
-          <div class="shot"><span class="cap">img2img · before / after</span></div>
-          <div class="shot"><span class="cap">Wan I2V · generated clip</span></div>
-          <div class="shot"><span class="cap">ComfyUI · workflow graph</span></div>
-          <div class="shot"><span class="cap">Output gallery</span></div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Generative pipeline · running on local GPU</span><span data-lang="ru">Генеративный пайплайн · на локальном GPU</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Input image</span><span data-lang="ru">Входное фото</span></div>
+              <div class="sd"><span data-lang="en">photo / prompt</span><span data-lang="ru">фото / промпт</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st">img2img</div>
+              <div class="sd"><span data-lang="en">restyle · inpaint · upscale</span><span data-lang="ru">рестайл · инпейнт · апскейл</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st">Wan I2V</div>
+              <div class="sd"><span data-lang="en">image → video clip</span><span data-lang="ru">картинка → видео-клип</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st">ComfyUI</div>
+              <div class="sd"><span data-lang="en">node workflow orchestration</span><span data-lang="ru">оркестрация нод-графа</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Output</span><span data-lang="ru">Результат</span></div>
+              <div class="sd"><span data-lang="en">gallery · delivery</span><span data-lang="ru">галерея · выдача</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </details>
