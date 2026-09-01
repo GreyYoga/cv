@@ -334,9 +334,9 @@
         <span class="pnum">02</span>
         <span class="phead">
           <h3>AvocatAI</h3>
-          <span class="ptag"><span data-lang="en">AI back-office for a law practice — 1200+ clients</span><span data-lang="ru">AI-бэкофис для адвокатской практики — 1200+ клиентов</span></span>
+          <span class="ptag"><span data-lang="en">AI legal platform for a defense lawyer — practice management, a RAG brain over national law, and one-click court drafting</span><span data-lang="ru">AI-платформа для адвоката — ведение практики, RAG-мозг по нацзаконодательству и генерация процессуальных документов одной кнопкой</span></span>
           <span class="pmeta">
-            <span class="badge">1200+ <span data-lang="en">clients</span><span data-lang="ru">клиентов</span></span><span class="badge"><span data-lang="en">handwriting OCR</span><span data-lang="ru">OCR рукописей</span></span><span class="badge"><span data-lang="en">doc generation</span><span data-lang="ru">генерация док-в</span></span><span class="badge"><span data-lang="en">headless LLM worker</span><span data-lang="ru">headless LLM-воркер</span></span>
+            <span class="badge">1200+ <span data-lang="en">clients</span><span data-lang="ru">клиентов</span></span><span class="badge">6985 <span data-lang="en">court decisions</span><span data-lang="ru">судебных решений</span></span><span class="badge">RAG · <span data-lang="en">26 legal sources</span><span data-lang="ru">26 источников права</span></span><span class="badge"><span data-lang="en">agentic drafting</span><span data-lang="ru">агентная генерация</span></span><span class="badge"><span data-lang="en">hardware e-signature</span><span data-lang="ru">аппаратная е-подпись</span></span><span class="badge">Gmail → <span data-lang="en">calendar</span><span data-lang="ru">календарь</span></span>
           </span>
         </span>
         <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -344,35 +344,60 @@
       <div class="pbody">
         <div class="pbody-grid">
           <div class="narr">
-            <p data-lang="en">An AI back office for a private legal practice managing <strong>1200+ clients and their case files</strong>. It reads handwriting, drafts legal documents, browses the national court-decisions database and runs heavy analysis through a headless LLM worker — all driven from a desktop control panel for the lawyer.</p>
-            <p data-lang="ru">AI-бэкофис для частной адвокатской практики на <strong>1200+ клиентов и их дела</strong>. Читает рукописи, генерирует юридические документы, ходит по национальной базе судебных решений и гоняет тяжёлый анализ через headless LLM-воркер — всё из десктоп-панели адвоката.</p>
+            <p data-lang="en">A full legal platform for a criminal-defense lawyer in Moldova — <strong>1200+ clients and their files</strong>, an AI brain that retrieves across the entire national legal corpus, and an agentic engine that drafts appeals and motions in one click. It reads handwriting, files court summons into the calendar by itself, and even <strong>signs documents on the hardware token</strong> — driven from the web from anywhere.</p>
+            <p data-lang="ru">Полноценная правовая платформа для адвоката по уголовным делам в Молдове — <strong>1200+ клиентов и их дела</strong>, AI-мозг с поиском по всему нацзаконодательству и агентный движок, который пишет апелляции и ходатайства одной кнопкой. Читает рукописи, сам заносит повестки в календарь и даже <strong>подписывает документы на аппаратном токене</strong> — всё из веба, из любой точки.</p>
+
             <div class="feat">
-              <h4><span data-lang="en">Document intelligence</span><span data-lang="ru">Работа с документами</span></h4>
+              <h4><span data-lang="en">Practice management</span><span data-lang="ru">Ведение практики</span></h4>
               <ul>
-                <li data-lang="en"><b>Handwriting OCR</b> of case materials into structured text</li>
-                <li data-lang="ru"><b>OCR рукописей</b> из материалов дела в структурный текст</li>
-                <li data-lang="en"><b>Automated case analysis</b> — dossiers built from raw files</li>
-                <li data-lang="ru"><b>Автоанализ дел</b> — досье из сырых материалов</li>
-                <li data-lang="en"><b>Legal document generation</b> — contracts, mandates, motions, acts</li>
-                <li data-lang="ru"><b>Генерация юр-документов</b> — договоры, мандаты, ходатайства, акты</li>
+                <li data-lang="en"><b>Clients</b> — case files, ID-card OCR (both sides), duplicate detection by ID/name</li>
+                <li data-lang="ru"><b>Клиенты</b> — досье, OCR буллетина (2 стороны), детект дублей по IDNP/имени</li>
+                <li data-lang="en"><b>Hearings, archive, inbox &amp; a job queue</b> — the whole office in one PWA</li>
+                <li data-lang="ru"><b>Заседания, архив, входящие и очередь задач</b> — весь кабинет в одном PWA</li>
               </ul>
             </div>
+
             <div class="feat">
-              <h4><span data-lang="en">Court-decisions browser (CSJ)</span><span data-lang="ru">Браузер судебных решений (CSJ)</span></h4>
+              <h4><span data-lang="en">Legal knowledge base — RAG</span><span data-lang="ru">База знаний права — RAG</span></h4>
               <ul>
-                <li data-lang="en">Integrated browser over the national case-law database with pickers to attach precedents to a case</li>
-                <li data-lang="ru">Встроенный браузер по национальной базе прецедентов с пикерами для привязки решений к делу</li>
+                <li data-lang="en"><b>26 sources · ~4800 records</b> — code commentaries (Civil, Criminal, Criminal-Procedure) + 17 special laws + judicial methodics</li>
+                <li data-lang="ru"><b>26 источников · ~4800 записей</b> — комментарии кодексов (Гражданский, Уголовный, УПК) + 17 спец-законов + судебные методички</li>
+                <li data-lang="en"><b>6985 court decisions</b> scraped with full text and labelled by outcome (acquittal / dismissal / sentence …)</li>
+                <li data-lang="ru"><b>6985 судебных решений</b> с полным текстом, размечены по исходу (оправдание / прекращение / срок …)</li>
+                <li data-lang="en"><b>Local semantic search</b> (ONNX embeddings) pulls precedents relevant to the case facts — one button, no manual lookup</li>
+                <li data-lang="ru"><b>Локальный семантический поиск</b> (ONNX-эмбеддинги) подтягивает прецеденты под фабулу дела — одна кнопка, без ручного поиска</li>
               </ul>
             </div>
+
             <div class="feat">
-              <h4><span data-lang="en">Headless LLM worker &amp; desktop Studio</span><span data-lang="ru">Headless LLM-воркер и десктоп-Studio</span></h4>
+              <h4><span data-lang="en">Grefierul — agentic AI engine</span><span data-lang="ru">Grefierul — агентный AI-движок</span></h4>
               <ul>
-                <li data-lang="en">Background worker pulls queues and runs OCR / analysis / drafting through Claude — heavy jobs off the critical path</li>
-                <li data-lang="ru">Фоновый воркер разбирает очереди и гоняет OCR / анализ / генерацию через Claude — тяжёлое вне критического пути</li>
-                <li data-lang="en"><b>PySide6 desktop panel</b> — services, queues, doc generation, case browser</li>
-                <li data-lang="ru"><b>Десктоп-панель на PySide6</b> — сервисы, очереди, генерация, браузер дел</li>
-                <li data-lang="en">Portable architecture — one path constant relocates the whole platform to a new machine or client, no DB migration</li>
-                <li data-lang="ru">Портативная архитектура — одна константа пути переносит платформу на новую машину/клиента без миграции БД</li>
+                <li data-lang="en">A job queue that offloads heavy legal work — drafting, case analysis, OCR — to <b>headless Claude sessions</b>, at zero metered API cost</li>
+                <li data-lang="ru">Очередь заданий, которая отдаёт тяжёлую работу — генерацию, анализ дел, OCR — <b>headless-сессиям Claude</b>, при нулевой оплате за API</li>
+                <li data-lang="en">Assembles context from <b>7 local layers</b> (contested act, law + lex mitior, doctrine, precedents, Supreme-Court practice, ECHR/methodics) → generates <b>contestație / apel / recurs</b> and acts as court-ready DOCX/PDF</li>
+                <li data-lang="ru">Собирает контекст из <b>7 локальных слоёв</b> (оспариваемый акт, закон + lex mitior, доктрина, прецеденты, практика ВС, ЕСПЧ/методики) → генерирует <b>contestație / apel / recurs</b> и акты в готовый к суду DOCX/PDF</li>
+                <li data-lang="en"><b>Precedent ranker biased toward winning outcomes</b> — surfaces cases that help the defense, not just similar ones</li>
+                <li data-lang="ru"><b>Ранкер прецедентов с уклоном в защиту</b> — выводит выигрышные дела, а не просто похожие</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Document generation</span><span data-lang="ru">Генерация документов</span></h4>
+              <ul>
+                <li data-lang="en">Court-exact DOCX/PDF formatting; contracts, mandates &amp; fiscal receipts with a <b>Romanian number-to-words</b> converter</li>
+                <li data-lang="ru">Точная под суд вёрстка DOCX/PDF; договоры, мандаты и чеки с конвертером <b>сумм прописью на румынском</b></li>
+                <li data-lang="en"><b>Decision parser</b> — a photo or PDF of a ruling auto-fills the case via vision</li>
+                <li data-lang="ru"><b>Парсер решений</b> — фото или PDF приговора автозаполняет дело через vision</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Hardware e-signature &amp; email automation</span><span data-lang="ru">Аппаратная е-подпись и email-автоматизация</span></h4>
+              <ul>
+                <li data-lang="en"><b>MoldSign / SafeNet eToken</b> — automated PAdES signing on the hardware token, triggered from the web CRM from anywhere via a Cloudflare tunnel</li>
+                <li data-lang="ru"><b>MoldSign / SafeNet eToken</b> — автоподпись PAdES на аппаратном токене, запуск из веб-CRM из любой точки через Cloudflare-туннель</li>
+                <li data-lang="en"><b>Gmail → Google Calendar</b> — parses court summons (incl. portal-based via headless Playwright), creates events and files PDFs into case folders</li>
+                <li data-lang="ru"><b>Gmail → Google Calendar</b> — парсит повестки (вкл. портальные через headless Playwright), создаёт события и раскладывает PDF по папкам дел</li>
               </ul>
             </div>
           </div>
@@ -381,19 +406,23 @@
               <dl>
                 <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · full build</span><span data-lang="ru">Соло · весь билд</span></dd>
                 <dt><span data-lang="en">Clients</span><span data-lang="ru">Клиентов</span></dt><dd><b>1200+</b></dd>
-                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Legal-tech · private</span><span data-lang="ru">Legal-tech · частный</span></dd>
+                <dt><span data-lang="en">Decisions</span><span data-lang="ru">Решений</span></dt><dd><b>6985</b></dd>
+                <dt><span data-lang="en">Legal sources</span><span data-lang="ru">Источников</span></dt><dd><b>26</b></dd>
+                <dt><span data-lang="en">Product</span><span data-lang="ru">Продукт</span></dt><dd><span data-lang="en">resellable to other lawyers</span><span data-lang="ru">перепродаётся адвокатам</span></dd>
               </dl>
             </div>
             <div>
               <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
-              <div class="chips"><span class="chip">FastAPI</span><span class="chip">Claude API</span><span class="chip">PySide6</span><span class="chip">OCR</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Cloudflare Tunnel</span></div>
+              <div class="chips"><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span><span class="chip">SQLite · WAL</span><span class="chip">fastembed / ONNX</span><span class="chip">Claude Opus/Haiku/Sonnet</span><span class="chip">Playwright</span><span class="chip">PySide6</span><span class="chip">Cloudflare Tunnel</span><span class="chip">MoldSign / eToken</span><span class="chip">Google APIs</span></div>
             </div>
           </div>
         </div>
         <div class="shots">
-          <div class="shot"><span class="cap">Studio · case queue</span></div>
-          <div class="shot"><span class="cap">CSJ · decisions browser</span></div>
-          <div class="shot"><span class="cap">Generated document</span></div>
+          <div class="shot"><span class="cap">Case → generated appeal</span></div>
+          <div class="shot"><span class="cap">Court-decisions database</span></div>
+          <div class="shot"><span class="cap">Hearings calendar</span></div>
+          <div class="shot"><span class="cap">e-signature (MoldSign)</span></div>
+          <div class="shot"><span class="cap">Legal assistant / RAG</span></div>
         </div>
       </div>
     </details>
