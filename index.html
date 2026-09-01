@@ -269,38 +269,40 @@
       <div class="pbody">
         <div class="pbody-grid">
           <div class="narr">
-            <p data-lang="en">The operating system for a Chișinău taxi fleet — I built the whole thing alone, <strong>200,000+ lines across web, backend and mobile in six months</strong>. It runs the business end-to-end: the fleet and its maintenance, drivers and investors, contracts and accounting, hiring, fuel and vehicle service — <strong>six role-based portals</strong> over one Flask + Vue backend, with <strong>~27 backend modules</strong>.</p>
-            <p data-lang="ru">Операционная система таксопарка в Кишинёве — построил всё в одиночку, <strong>200 000+ строк в вебе, бэкенде и мобилке за шесть месяцев</strong>. Ведёт бизнес под ключ: парк и его обслуживание, водители и инвесторы, контракты и бухгалтерия, найм, топливо и автосервис — <strong>шесть ролевых порталов</strong> над единым Flask + Vue бэкендом, <strong>~27 backend-модулей</strong>.</p>
+            <p data-lang="en">The operating system for a Chișinău taxi fleet — I built the whole thing alone, <strong>200,000+ lines across web, backend and mobile in six months</strong>. It runs the business end-to-end: the fleet, drivers and the investor portal, contracts and payments, hiring, calls, fuel and vehicle release — <strong>six role-based portals</strong> over one Flask + Vue backend, with <strong>~27 backend modules</strong>.</p>
+            <p data-lang="ru">Операционная система таксопарка в Кишинёве — построил всё в одиночку, <strong>200 000+ строк в вебе, бэкенде и мобилке за шесть месяцев</strong>. Ведёт бизнес под ключ: парк, водители и портал инвестора, контракты и платежи, найм, звонки, топливо и выпуск авто — <strong>шесть ролевых порталов</strong> над единым Flask + Vue бэкендом, <strong>~27 backend-модулей</strong>.</p>
 
             <div class="feat">
-              <h4><span data-lang="en">Fleet, cars &amp; maintenance</span><span data-lang="ru">Парк, авто и ТО</span></h4>
+              <h4><span data-lang="en">Fleet, cars &amp; vehicle release</span><span data-lang="ru">Парк, авто и выпуск</span></h4>
               <ul>
-                <li data-lang="en"><b>Fleet register</b> (~255 cars) — car cards with media, odometer, status and full history</li>
-                <li data-lang="ru"><b>Реестр парка</b> (~255 авто) — карточки с медиа, пробегом, статусом и полной историей</li>
-                <li data-lang="en"><b>Maintenance regulation</b> — 10 service procedures with status <b>auto-computed from mileage</b> (overdue / soon / upcoming), a service log and waybills</li>
-                <li data-lang="ru"><b>Регламент ТО</b> — 10 процедур со статусом, <b>авто-рассчитанным от пробега</b> (просрочено / скоро / предстоит), журнал обслуживания и путевые листы</li>
+                <li data-lang="en"><b>Fleet register</b> (~255 cars) — car cards with basic info, documents, aggregator integrations, photos and <b>maintenance tracking</b> (last / next service by mileage)</li>
+                <li data-lang="ru"><b>Реестр парка</b> (~255 авто) — карточки с инфо, документами, интеграциями агрегаторов, фото и <b>учётом обслуживания</b> (последнее / следующее ТО по пробегу)</li>
+                <li data-lang="en"><b>Vehicle release</b> flow with fixed-price cards, plus mileage entry</li>
+                <li data-lang="ru"><b>Выпуск автомобилей</b> с карточками фикс-цен и ввод пробега</li>
               </ul>
             </div>
 
             <div class="feat">
-              <h4><span data-lang="en">Drivers &amp; investors</span><span data-lang="ru">Водители и инвесторы</span></h4>
+              <h4><span data-lang="en">Driver PWA &amp; investor portal</span><span data-lang="ru">PWA водителя и портал инвестора</span></h4>
               <ul>
-                <li data-lang="en"><b>Driver PWA</b> — a clickable work-schedule calendar, a running income scale with a <b>12% surplus threshold</b>, balance, debts, and personal + broadcast messages</li>
-                <li data-lang="ru"><b>PWA водителя</b> — кликабельный календарь графика, бегущая шкала дохода с <b>порогом сверхприбыли 12%</b>, баланс, долги, личные и broadcast-сообщения</li>
-                <li data-lang="en"><b>Investor portal</b> — <b>3 tax models</b> (individual 12% / company 0% / locator-driver), a wallet (balance, earned, withdrawn, tax, transactions), ROI, and per-car monthly income &amp; expenses</li>
-                <li data-lang="ru"><b>Портал инвестора</b> — <b>3 налоговых модели</b> (физлицо 12% / юрлицо 0% / частник-локатор), кошелёк (баланс, заработано, выведено, налог, транзакции), ROI и помесячные доходы/расходы по каждому авто</li>
+                <li data-lang="en"><b>Driver PWA</b> (PIN login) — a dashboard with Bolt/Letz balances, a virtual wallet, the driver's car and the week's debt</li>
+                <li data-lang="ru"><b>PWA водителя</b> (вход по PIN) — дашборд с балансами Bolt/Letz, виртуальный кошелёк, машина водителя и долг за неделю</li>
+                <li data-lang="en"><b>Documents</b> with expiry tracking (licence, medical &amp; narco certificates, taxi certificate), <b>payment requests</b> with odometer photos, and a <b>fuel-card top-up</b> flow (Avante / Linia)</li>
+                <li data-lang="ru"><b>Документы</b> с контролем сроков (права, мед. и нарко-справки, серт. такси), <b>заявки на оплату</b> с фото пробега и <b>пополнение топливной карты</b> (Avante / Linia)</li>
+                <li data-lang="en"><b>Photo-control</b> inspections and a <b>curator</b> channel — earnings tips and two-way messaging with drivers</li>
+                <li data-lang="ru"><b>Фотоконтроль</b> и канал <b>куратора</b> — советы по заработку и переписка с водителями</li>
+                <li data-lang="en"><b>Investor portal</b> — an embedded fleet-economics view (contributions and payouts per car)</li>
+                <li data-lang="ru"><b>Портал инвестора</b> — встроенная экономика парка (вложения и выплаты по авто)</li>
               </ul>
             </div>
 
             <div class="feat">
-              <h4><span data-lang="en">Contracts &amp; accounting</span><span data-lang="ru">Контракты и бухгалтерия</span></h4>
+              <h4><span data-lang="en">Contracts, payments &amp; cashier</span><span data-lang="ru">Контракты, платежи и касса</span></h4>
               <ul>
-                <li data-lang="en"><b>Contract generation</b> — 9 sections + 5 annexes (hand-over act, order, power of attorney, termination, personal-use statement), a registry with auto-numbering, PDF</li>
-                <li data-lang="ru"><b>Генерация контрактов</b> — 9 разделов + 5 приложений (акт приёма-передачи, приказ, доверенность, резилиере, заявление), реестр с автонумерацией, PDF</li>
-                <li data-lang="en"><b>Accountant auto-tasks</b> from each month's data (driver tax, fixed costs, investor payout, income tax, salary taxes) — each with a <b>bank-payment CSV</b> for Procredit / Victoriabank</li>
-                <li data-lang="ru"><b>Автозадачи бухгалтера</b> из данных месяца (налог водителя, фикс. расходы, выплата инвестору, НДФЛ, налоги с ЗП) — каждая с <b>банковским CSV</b> для Procredit / Victoriabank</li>
-                <li data-lang="en">BPay payments, accountable funds and <b>e-CEK</b> receipts (Bolt / Yandex / Letz)</li>
-                <li data-lang="ru">Платежи BPay, подотчётные средства и <b>e-CEK</b> чеки (Bolt / Yandex / Letz)</li>
+                <li data-lang="en"><b>Contracts registry</b> — driver contracts auto-numbered (continuing the 1C ledger), notes, search and CSV export</li>
+                <li data-lang="ru"><b>Реестр контрактов</b> — контракты водителей с автонумерацией (продолжая нумерацию из 1С), заметки, поиск и CSV-экспорт</li>
+                <li data-lang="en"><b>BPay</b> — create terminal payment links; a cashier module and accountable-funds tracking</li>
+                <li data-lang="ru"><b>BPay</b> — создание платёжных ссылок через терминал; модуль кассы и учёт подотчётных средств</li>
               </ul>
             </div>
 
