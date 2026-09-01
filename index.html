@@ -4,167 +4,200 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sergey Tkachenko</title>
+<meta name="description" content="Sergey Tkachenko / GreyYoga — AI engineer. Production AI systems built solo, end-to-end.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
   :root{
-    --paper:#F4F5F2; --surface:#FFFFFF; --ink:#15171C; --muted:#5C6370;
-    --line:#DFE1DC; --line-strong:#C8CBC3;
-    --accent:#0E6E5E; --accent-ink:#0A4D42; --amber:#B4711A;
-    --chip:#EDEFEA; --chip-ink:#3B4250;
-    --shadow:0 1px 0 rgba(21,23,28,.04), 0 8px 30px -18px rgba(21,23,28,.25);
-    --maxw:74ch;
+    --paper:#F4F5F2; --surface:#FFFFFF; --surface-2:#FBFBF9; --ink:#15171C; --muted:#5C6370;
+    --line:#E2E4DE; --line-strong:#CBCEC6;
+    --accent:#0E6E5E; --accent-ink:#0A4D42; --accent-soft:#DCEDE8; --amber:#B4711A;
+    --chip:#ECEEE9; --chip-ink:#3B4250;
+    --shadow:0 1px 0 rgba(21,23,28,.03), 0 10px 34px -20px rgba(21,23,28,.28);
     --f-display:"Archivo",system-ui,sans-serif;
     --f-body:"Newsreader",Georgia,serif;
     --f-mono:"IBM Plex Mono",ui-monospace,monospace;
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --paper:#101319; --surface:#161A22; --ink:#E8EAE6; --muted:#96A0AE;
-      --line:#242A34; --line-strong:#333B47;
-      --accent:#41C7AE; --accent-ink:#7FE0CD; --amber:#E3A857;
-      --chip:#1D232D; --chip-ink:#AEB7C4;
-      --shadow:0 1px 0 rgba(0,0,0,.3), 0 14px 40px -24px rgba(0,0,0,.7);
+      --paper:#0E1116; --surface:#161A22; --surface-2:#121620; --ink:#E8EAE6; --muted:#98A2B0;
+      --line:#242A34; --line-strong:#343C48;
+      --accent:#41C7AE; --accent-ink:#84E4D2; --accent-soft:#12302A; --amber:#E3A857;
+      --chip:#1C222C; --chip-ink:#AEB7C4;
+      --shadow:0 1px 0 rgba(0,0,0,.3), 0 16px 44px -26px rgba(0,0,0,.75);
     }
   }
   :root[data-theme="dark"]{
-    --paper:#101319; --surface:#161A22; --ink:#E8EAE6; --muted:#96A0AE;
-    --line:#242A34; --line-strong:#333B47;
-    --accent:#41C7AE; --accent-ink:#7FE0CD; --amber:#E3A857;
-    --chip:#1D232D; --chip-ink:#AEB7C4;
-    --shadow:0 1px 0 rgba(0,0,0,.3), 0 14px 40px -24px rgba(0,0,0,.7);
+    --paper:#0E1116; --surface:#161A22; --surface-2:#121620; --ink:#E8EAE6; --muted:#98A2B0;
+    --line:#242A34; --line-strong:#343C48;
+    --accent:#41C7AE; --accent-ink:#84E4D2; --accent-soft:#12302A; --amber:#E3A857;
+    --chip:#1C222C; --chip-ink:#AEB7C4;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 16px 44px -26px rgba(0,0,0,.75);
   }
 
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--f-body); font-size:18px; line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:clamp(28px,5vw,64px) clamp(20px,5vw,40px) 80px;}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1180px; margin:0 auto; padding:clamp(24px,4vw,48px) clamp(18px,4vw,44px) 90px;}
 
-  /* ---- shared type ---- */
   .mono{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
-  h1,h2,h3{font-family:var(--f-display); font-weight:700; line-height:1.08; text-wrap:balance; margin:0;}
-  a{color:var(--accent-ink); text-decoration:none;}
-  a:hover{text-decoration:underline; text-underline-offset:3px;}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
+  h1,h2,h3,h4{font-family:var(--f-display); font-weight:700; line-height:1.1; text-wrap:balance; margin:0;}
+  a{color:var(--accent-ink); text-decoration:none}
+  a:hover{text-decoration:underline; text-underline-offset:3px}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
 
-  /* ---- header ---- */
-  .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:clamp(30px,6vw,54px);}
-  .eyebrow{display:flex; align-items:center; gap:10px;}
-  .eyebrow .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent);}
-  .controls{display:flex; gap:8px;}
-  .btn{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase;
-    background:transparent; color:var(--muted); border:1px solid var(--line-strong); border-radius:7px;
-    padding:7px 11px; cursor:pointer; display:inline-flex; gap:6px; align-items:center; transition:.15s;}
-  .btn:hover{color:var(--ink); border-color:var(--accent);}
-  .seg{display:inline-flex; border:1px solid var(--line-strong); border-radius:7px; overflow:hidden;}
-  .seg button{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.05em; background:transparent; color:var(--muted);
-    border:0; padding:7px 12px; cursor:pointer; transition:.15s;}
-  .seg button[aria-pressed="true"]{background:var(--accent); color:#fff;}
-  :root[data-theme="dark"] .seg button[aria-pressed="true"], :root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#08130F;}
+  /* ---------- top bar ---------- */
+  .topbar{display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:clamp(26px,5vw,44px);}
+  .eyebrow{display:flex; align-items:center; gap:10px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+  .controls{display:flex; gap:8px}
+  .btn{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--line-strong);border-radius:7px;padding:7px 11px;cursor:pointer;transition:.15s}
+  .btn:hover{color:var(--ink);border-color:var(--accent)}
+  .seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:7px;overflow:hidden}
+  .seg button{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.05em;background:transparent;color:var(--muted);border:0;padding:7px 12px;cursor:pointer;transition:.15s}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  :root[data-theme="dark"] .seg button[aria-pressed="true"], :root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#08130F}
 
-  .name{font-size:clamp(2.6rem,8vw,4.4rem); font-weight:800; letter-spacing:-.02em; margin:0;}
-  .handle{color:var(--accent);}
-  .thesis{font-size:clamp(1.15rem,2.6vw,1.5rem); color:var(--ink); margin:.5rem 0 0; max-width:38ch; font-weight:400;}
-  .thesis em{font-style:italic; color:var(--accent-ink);}
+  /* ---------- hero ---------- */
+  .hero{display:grid; gap:22px; padding-bottom:clamp(30px,5vw,48px); border-bottom:1px solid var(--line)}
+  .name{font-size:clamp(2.8rem,9vw,5.4rem);font-weight:900;letter-spacing:-.03em;line-height:.98}
+  .name .handle{color:var(--accent)}
+  .thesis{font-size:clamp(1.25rem,3vw,1.9rem);font-weight:400;max-width:24ch;line-height:1.25}
+  .thesis em{font-style:italic;color:var(--accent-ink)}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:end}
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;gap:20px}}
+  .contact{display:flex;flex-wrap:wrap;gap:8px}
+  .contact a,.contact span.ci{font-family:var(--f-mono);font-size:.76rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:inline-flex;gap:8px;align-items:center;box-shadow:var(--shadow);transition:.15s}
+  .contact a:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
+  .contact .k{color:var(--muted)}
+  .intro{font-size:1.12rem;color:var(--ink);max-width:60ch}
+  .intro strong{font-weight:600;background:linear-gradient(transparent 60%,color-mix(in srgb,var(--accent) 20%,transparent) 0)}
 
-  .contact{display:flex; flex-wrap:wrap; gap:8px 8px; margin-top:26px;}
-  .contact a, .contact span.ci{font-family:var(--f-mono); font-size:.76rem; letter-spacing:.02em; text-transform:none;
-    color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:8px 12px;
-    display:inline-flex; gap:8px; align-items:center; box-shadow:var(--shadow); transition:.15s;}
-  .contact a:hover{border-color:var(--accent); text-decoration:none; transform:translateY(-1px);}
-  .contact .k{color:var(--muted);}
+  /* ---------- metrics ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:clamp(30px,5vw,44px)}
+  .metric{background:var(--surface);padding:22px 20px}
+  .metric .n{font-family:var(--f-display);font-weight:800;font-size:2.1rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .metric .n b{color:var(--amber)}
+  .metric .l{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:9px}
 
-  /* ---- rhythm / sections ---- */
-  section{margin-top:clamp(42px,7vw,68px);}
-  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:22px; padding-bottom:12px; border-bottom:1px solid var(--line);}
-  .sec-head .idx{font-family:var(--f-mono); font-size:.72rem; color:var(--accent); letter-spacing:.08em;}
-  .sec-head h2{font-size:1.02rem; letter-spacing:.02em; text-transform:uppercase; font-weight:700; color:var(--muted);}
+  /* ---------- section head ---------- */
+  section{margin-top:clamp(46px,7vw,72px)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .sec-head .idx{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);letter-spacing:.08em}
+  .sec-head h2{font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+  .sec-head .rule{flex:1;height:1px;background:var(--line)}
 
-  .lede{font-size:1.18rem; line-height:1.65;}
-  .lede strong{font-weight:600; color:var(--ink); background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 22%,transparent) 0);}
+  /* ---------- project accordion ---------- */
+  .proj{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:16px;box-shadow:var(--shadow);overflow:hidden}
+  .proj[open]{border-color:var(--line-strong)}
+  .proj summary{list-style:none;cursor:pointer;padding:clamp(18px,3vw,26px);display:grid;grid-template-columns:auto 1fr auto;gap:8px 18px;align-items:center}
+  .proj summary::-webkit-details-marker{display:none}
+  .proj summary:hover{background:var(--surface-2)}
+  .pnum{font-family:var(--f-mono);font-size:.8rem;color:var(--accent);font-weight:600;align-self:start;padding-top:6px}
+  .phead{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .phead h3{font-size:clamp(1.35rem,2.6vw,1.85rem);letter-spacing:-.01em}
+  .ptag{color:var(--muted);font-size:1.02rem}
+  .pmeta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .badge{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent-ink);background:var(--accent-soft);border-radius:5px;padding:4px 8px}
+  .chev{width:34px;height:34px;border-radius:8px;border:1px solid var(--line-strong);display:grid;place-items:center;color:var(--muted);transition:.2s;align-self:start}
+  .proj[open] .chev{transform:rotate(180deg);color:var(--accent);border-color:var(--accent)}
+  .chev svg{width:15px;height:15px}
 
-  /* ---- metrics ---- */
-  .metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
-  .metric{background:var(--surface); padding:20px 18px;}
-  .metric .n{font-family:var(--f-display); font-weight:800; font-size:2rem; letter-spacing:-.02em; font-variant-numeric:tabular-nums; color:var(--ink); line-height:1;}
-  .metric .n b{color:var(--amber); font-weight:800;}
-  .metric .l{font-family:var(--f-mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-top:8px;}
+  .pbody{padding:0 clamp(18px,3vw,26px) clamp(22px,3vw,30px);border-top:1px solid var(--line)}
+  .pbody-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:30px;padding-top:24px}
+  @media (max-width:820px){.pbody-grid{grid-template-columns:1fr;gap:22px}}
+  .narr p{margin:0 0 14px;max-width:66ch}
+  .narr p strong{font-weight:600;color:var(--ink)}
+  .feat{margin:18px 0 0}
+  .feat h4{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:16px 0 8px;font-weight:600}
+  .feat ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .feat li{position:relative;padding-left:20px;font-size:1.02rem;line-height:1.45}
+  .feat li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .feat li b{font-weight:600}
 
-  /* ---- projects ---- */
-  .proj{border-top:1px solid var(--line); padding:24px 0; display:grid; grid-template-columns:1fr; gap:10px;}
-  .proj:first-of-type{border-top:0;}
-  .proj-top{display:flex; align-items:baseline; justify-content:space-between; gap:14px; flex-wrap:wrap;}
-  .proj h3{font-size:1.4rem; letter-spacing:-.01em;}
-  .proj .role{font-family:var(--f-mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); white-space:nowrap;}
-  .proj p{margin:0; color:var(--ink);}
-  .proj .tag-note{font-family:var(--f-mono); font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em;}
-  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px;}
-  .chip{font-family:var(--f-mono); font-size:.7rem; color:var(--chip-ink); background:var(--chip); border:1px solid transparent; padding:4px 9px; border-radius:6px; letter-spacing:.01em;}
-  .proj-link{font-family:var(--f-mono); font-size:.74rem;}
+  .aside{display:flex;flex-direction:column;gap:18px}
+  .facts{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .facts dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 14px}
+  .facts dt{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-top:2px}
+  .facts dd{margin:0;font-size:.95rem;font-family:var(--f-mono)}
+  .facts dd b{color:var(--amber);font-family:var(--f-display);font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--f-mono);font-size:.7rem;color:var(--chip-ink);background:var(--chip);padding:4px 9px;border-radius:6px}
 
-  /* ---- stack spec ---- */
-  .stack{display:grid; gap:14px;}
-  .stack-row{display:grid; grid-template-columns:130px 1fr; gap:16px; align-items:start; padding:12px 0; border-top:1px dashed var(--line);}
-  .stack-row:first-child{border-top:0;}
-  .stack-row .cat{font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); padding-top:4px;}
+  /* screenshots */
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:22px}
+  .shot{position:relative;aspect-ratio:16/10;border:1px dashed var(--line-strong);border-radius:10px;background:
+      linear-gradient(135deg,color-mix(in srgb,var(--accent) 5%,var(--surface-2)),var(--surface-2));
+      display:flex;flex-direction:column;justify-content:flex-end;padding:12px;overflow:hidden}
+  .shot::before{content:"▦";position:absolute;top:10px;left:12px;font-size:1rem;color:var(--line-strong)}
+  .shot .cap{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-  /* ---- timeline ---- */
-  .tl{display:grid; gap:2px;}
-  .tl-item{display:grid; grid-template-columns:150px 1fr; gap:16px; padding:14px 0; border-top:1px solid var(--line);}
-  .tl-item:first-child{border-top:0;}
-  .tl .when{font-family:var(--f-mono); font-size:.74rem; color:var(--muted); font-variant-numeric:tabular-nums;}
-  .tl .what h3{font-size:1.08rem; font-family:var(--f-display); font-weight:600;}
-  .tl .what .org{color:var(--accent-ink); font-family:var(--f-mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em;}
-  .tl .what p{margin:.35rem 0 0; font-size:1rem; color:var(--muted);}
+  /* ---------- compact more-projects ---------- */
+  .grid-more{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .mcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .mcard h4{font-size:1.15rem;font-family:var(--f-display);font-weight:700}
+  .mcard p{margin:6px 0 12px;font-size:.98rem;color:var(--muted)}
 
-  /* ---- languages ---- */
-  .langs{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px;}
-  .lang-item{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; box-shadow:var(--shadow);}
-  .lang-item .lg{font-family:var(--f-display); font-weight:700; font-size:1.1rem;}
-  .lang-item .lv{font-family:var(--f-mono); font-size:.72rem; color:var(--accent); text-transform:uppercase; letter-spacing:.05em; margin-top:2px;}
-  .bar{height:5px; background:var(--chip); border-radius:3px; margin-top:12px; overflow:hidden;}
-  .bar i{display:block; height:100%; background:var(--accent); border-radius:3px;}
+  /* ---------- stack ---------- */
+  .stack{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface)}
+  .stack-row{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:start;padding:16px 20px;border-top:1px solid var(--line)}
+  .stack-row:first-child{border-top:0}
+  .stack-row .cat{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);padding-top:4px}
+  @media (max-width:600px){.stack-row{grid-template-columns:1fr;gap:8px}}
 
-  footer{margin-top:clamp(48px,8vw,72px); padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center;}
-  footer .mono{font-size:.7rem;}
+  /* ---------- timeline ---------- */
+  .tl{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+  .tl-item{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:16px 0 16px 22px;position:relative}
+  .tl-item::before{content:"";position:absolute;left:-7px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .tl .when{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+  .tl .what h3{font-size:1.12rem;font-family:var(--f-display);font-weight:600}
+  .tl .what .org{color:var(--accent-ink);font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+  .tl .what p{margin:.4rem 0 0;font-size:1rem;color:var(--muted);max-width:60ch}
+  @media (max-width:600px){.tl-item{grid-template-columns:1fr;gap:4px}.tl .when{order:-1}}
 
-  /* ---- i18n visibility ---- */
-  [data-lang]{display:none;}
-  :root[data-ui-lang="en"] [data-lang="en"]{display:revert;}
-  :root[data-ui-lang="ru"] [data-lang="ru"]{display:revert;}
-  /* inline variants keep inline */
-  span[data-lang]{display:none;}
-  :root[data-ui-lang="en"] span[data-lang="en"]{display:inline;}
-  :root[data-ui-lang="ru"] span[data-lang="ru"]{display:inline;}
+  /* ---------- languages ---------- */
+  .langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .lang-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .lang-item .lg{font-family:var(--f-display);font-weight:700;font-size:1.15rem}
+  .lang-item .lv{font-family:var(--f-mono);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+  .bar{height:6px;background:var(--chip);border-radius:4px;margin-top:14px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
 
-  /* reveal */
+  footer{margin-top:clamp(50px,8vw,80px);padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+  footer .avail{font-family:var(--f-mono);font-size:.74rem;color:var(--accent-ink);display:flex;align-items:center;gap:8px}
+  footer .avail .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 18%,transparent)}
+  footer .mono{font-size:.7rem}
+
+  /* ---------- i18n ---------- */
+  [data-lang]{display:none}
+  span[data-lang]{display:none}
+  :root[data-ui-lang="en"] [data-lang="en"]{display:revert}
+  :root[data-ui-lang="ru"] [data-lang="ru"]{display:revert}
+  :root[data-ui-lang="en"] span[data-lang="en"]{display:inline}
+  :root[data-ui-lang="ru"] span[data-lang="ru"]{display:inline}
+  li[data-lang]{display:none}
+  :root[data-ui-lang="en"] li[data-lang="en"]{display:list-item;display:block}
+  :root[data-ui-lang="ru"] li[data-lang="ru"]{display:block}
+
   @media (prefers-reduced-motion:no-preference){
-    .reveal{opacity:0; transform:translateY(12px); animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards;}
-    @keyframes rise{to{opacity:1; transform:none;}}
+    .reveal{opacity:0;transform:translateY(12px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+    @keyframes rise{to{opacity:1;transform:none}}
+    .proj[open] .pbody{animation:fade .4s ease}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
   }
-
-  @media (max-width:560px){
-    .stack-row,.tl-item{grid-template-columns:1fr; gap:6px;}
-    .tl .when{order:-1;}
-  }
-
   @media print{
-    :root{--paper:#fff; --surface:#fff; --shadow:none;}
-    .controls{display:none;}
-    body{font-size:11pt;}
-    section{margin-top:22px; break-inside:avoid;}
-    .proj{break-inside:avoid;}
+    :root{--paper:#fff;--surface:#fff;--surface-2:#fff;--shadow:none}
+    .controls,.chev{display:none}
+    .proj{break-inside:avoid;border-color:#ccc}
+    .pbody{display:block!important}
+    details{border:1px solid #ccc}
+    body{font-size:11pt}
   }
 </style>
 </head>
 <body>
-
-
 <div class="wrap">
 
   <div class="topbar">
@@ -181,145 +214,310 @@
     </div>
   </div>
 
-  <header class="reveal">
-    <h1 class="name">Sergey Tkachenko <span class="handle">/ GreyYoga</span></h1>
-    <p class="thesis">
-      <span data-lang="en">I build <em>production AI systems</em> end-to-end — solo, from architecture to deploy.</span>
-      <span data-lang="ru">Строю <em>production AI-системы</em> под ключ — соло, от архитектуры до деплоя.</span>
-    </p>
-
-    <div class="contact">
-      <a href="https://aingers.com" target="_blank" rel="noopener"><span class="k">studio</span> aingers.com</a>
-      <a href="https://github.com/greyyoga" target="_blank" rel="noopener"><span class="k">github</span> /greyyoga</a>
-      <span class="ci"><span class="k">email</span> hello@aingers.com</span>
-      <span class="ci"><span class="k">tg / wa</span> @greyyoga</span>
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="hero-grid">
+      <div>
+        <h1 class="name">Sergey Tkachenko <span class="handle">/ GreyYoga</span></h1>
+        <p class="thesis">
+          <span data-lang="en">I ship <em>production AI systems</em> — solo, end-to-end.</span>
+          <span data-lang="ru">Делаю <em>production AI-системы</em> — соло, под ключ.</span>
+        </p>
+      </div>
+      <div>
+        <p class="intro" data-lang="en">Full-stack engineer, <strong>over a year fully focused on AI</strong>. I take a project and build the whole thing alone — backend, frontend, mobile, bots, scrapers, LLM agents, generative pipelines and the infra under them. I ship <strong>real systems with real users</strong>, not demos.</p>
+        <p class="intro" data-lang="ru">Full-stack инженер, <strong>больше года полностью в AI</strong>. Беру проект и делаю его целиком в одиночку — бэкенд, фронтенд, мобилка, боты, парсеры, LLM-агенты, генеративные пайплайны и вся инфра под ними. Выпускаю <strong>рабочие системы с живыми пользователями</strong>, а не демо.</p>
+        <div class="contact" style="margin-top:18px">
+          <a href="https://aingers.com" target="_blank" rel="noopener"><span class="k">studio</span> aingers.com</a>
+          <a href="https://github.com/greyyoga" target="_blank" rel="noopener"><span class="k">github</span> /greyyoga</a>
+          <span class="ci"><span class="k">email</span> hello@aingers.com</span>
+          <span class="ci"><span class="k">tg / wa</span> @greyyoga</span>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="reveal">
+  <!-- METRICS -->
+  <div class="metrics reveal">
+    <div class="metric"><div class="n"><b>200K+</b></div><div class="l"><span data-lang="en">lines of code, solo · 6 mo</span><span data-lang="ru">строк кода соло · 6 мес</span></div></div>
+    <div class="metric"><div class="n"><b>10+</b></div><div class="l"><span data-lang="en">AI systems in production</span><span data-lang="ru">AI-систем в проде</span></div></div>
+    <div class="metric"><div class="n"><b>1200+</b></div><div class="l"><span data-lang="en">users on one platform</span><span data-lang="ru">пользователей на одной платформе</span></div></div>
+    <div class="metric"><div class="n"><b>1</b></div><div class="l"><span data-lang="en">engineer per project — me</span><span data-lang="ru">инженер на проект — я</span></div></div>
+  </div>
+
+  <!-- SELECTED WORK -->
+  <section>
     <div class="sec-head"><span class="idx">01</span>
-      <h2><span data-lang="en">Profile</span><span data-lang="ru">О себе</span></h2>
-    </div>
-    <p class="lede" data-lang="en">
-      Full-stack engineer, <strong>fully focused on AI for over a year</strong>. I take a project
-      and build it alone from scratch under the key — backend, frontend, mobile, bots, scrapers,
-      LLM agents and generative pipelines. Before AI: freelance web (PHP / JS). I ship
-      <strong>real systems with real users</strong>, not demos.
-    </p>
-    <p class="lede" data-lang="ru">
-      Full-stack инженер, <strong>больше года полностью в AI</strong>. Беру проект и делаю его
-      в одиночку с нуля под ключ — бэкенд, фронтенд, мобилка, боты, парсеры, LLM-агенты и
-      генеративные пайплайны. До AI — фриланс-веб (PHP / JS). Выпускаю
-      <strong>рабочие системы с живыми пользователями</strong>, а не демо.
-    </p>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head"><span class="idx">02</span>
-      <h2><span data-lang="en">By the numbers</span><span data-lang="ru">В цифрах</span></h2>
-    </div>
-    <div class="metrics">
-      <div class="metric"><div class="n"><b>200K+</b></div><div class="l"><span data-lang="en">lines of code, solo · 6 mo</span><span data-lang="ru">строк кода соло · 6 мес</span></div></div>
-      <div class="metric"><div class="n"><b>10+</b></div><div class="l"><span data-lang="en">AI systems in production</span><span data-lang="ru">AI-систем в проде</span></div></div>
-      <div class="metric"><div class="n"><b>1200+</b></div><div class="l"><span data-lang="en">users on one platform</span><span data-lang="ru">пользователей на одной платформе</span></div></div>
-      <div class="metric"><div class="n"><b>1</b></div><div class="l"><span data-lang="en">engineer per project (me)</span><span data-lang="ru">инженер на проект (я)</span></div></div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <div class="sec-head"><span class="idx">03</span>
       <h2><span data-lang="en">Selected work</span><span data-lang="ru">Избранные проекты</span></h2>
+      <span class="rule"></span>
+      <span class="mono"><span data-lang="en">click to expand</span><span data-lang="ru">кликни, чтобы раскрыть</span></span>
     </div>
 
-    <div class="proj">
-      <div class="proj-top">
-        <h3>ChefTaxi CRM</h3>
-        <span class="role"><span data-lang="en">Solo · production</span><span data-lang="ru">Соло · прод</span></span>
+    <!-- ChefTaxi -->
+    <details class="proj" open>
+      <summary>
+        <span class="pnum">01</span>
+        <span class="phead">
+          <h3>ChefTaxi CRM</h3>
+          <span class="ptag"><span data-lang="en">AI operations platform for a taxi fleet — built solo, end-to-end</span><span data-lang="ru">AI-платформа управления таксопарком — соло, под ключ</span></span>
+          <span class="pmeta">
+            <span class="badge">200K+ LOC</span><span class="badge">5 apps</span><span class="badge">8 bots</span><span class="badge">4 API integrations</span><span class="badge"><span data-lang="en">production</span><span data-lang="ru">прод</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A complete operating system for a Chișinău taxi fleet — <strong>200,000+ lines across web, backend and mobile in six months, alone</strong>. It runs the business day-to-day: dispatch, drivers, finance, hiring, fuel and vehicle service, with AI woven through the whole automation layer.</p>
+            <p data-lang="ru">Полная операционная система таксопарка в Кишинёве — <strong>200 000+ строк в вебе, бэкенде и мобилке за шесть месяцев, в одиночку</strong>. Ведёт бизнес каждый день: диспетчерская, водители, финансы, найм, топливо и автосервис, с AI по всему слою автоматизации.</p>
+            <div class="feat">
+              <h4><span data-lang="en">Apps &amp; portals — 5</span><span data-lang="ru">Приложения и порталы — 5</span></h4>
+              <ul>
+                <li data-lang="en"><b>Admin CRM</b> — dispatch, fleet, finance, drivers, accountability</li>
+                <li data-lang="ru"><b>Админ-CRM</b> — диспетчерская, парк, финансы, водители, подотчёт</li>
+                <li data-lang="en"><b>Driver PWA</b> — shifts, balance, debts, documents, messages</li>
+                <li data-lang="ru"><b>PWA водителя</b> — смены, баланс, долги, документы, сообщения</li>
+                <li data-lang="en"><b>Manager &amp; curator PWA</b> — team, tasks, rewards</li>
+                <li data-lang="ru"><b>PWA менеджера и куратора</b> — команда, задачи, награды</li>
+                <li data-lang="en"><b>Onboarding portal</b> — candidate intake &amp; document control</li>
+                <li data-lang="ru"><b>Портал онбординга</b> — приём кандидатов и контроль документов</li>
+                <li data-lang="en"><b>Service &amp; paint-shop portal</b> — repairs, car service, expenses</li>
+                <li data-lang="ru"><b>Портал сервиса и малярки</b> — ремонт, автосервис, расходы</li>
+              </ul>
+            </div>
+            <div class="feat">
+              <h4><span data-lang="en">Telegram bots — 8</span><span data-lang="ru">Telegram-боты — 8</span></h4>
+              <ul>
+                <li data-lang="en">Fuel (NowOil), team, marketplace, curator, tasker/documents, e-CEK receipts, onboarding and notification bots — each tied into the CRM</li>
+                <li data-lang="ru">Топливо (NowOil), команда, маркетплейс, куратор, задачи/документы, e-CEK чеки, онбординг и уведомления — каждый завязан на CRM</li>
+              </ul>
+            </div>
+            <div class="feat">
+              <h4><span data-lang="en">Automation &amp; AI</span><span data-lang="ru">Автоматизация и AI</span></h4>
+              <ul>
+                <li data-lang="en"><b>Playwright</b> automation of Bolt Fleet + <b>Groq Vision (Llama 4)</b> solving captchas</li>
+                <li data-lang="ru"><b>Playwright</b>-автоматизация Bolt Fleet + <b>Groq Vision (Llama 4)</b> для капчи</li>
+                <li data-lang="en">Scheduler running AI jobs — document reminders, candidate parsing from job boards, call parsing, fuel-auth monitoring, curator rewards</li>
+                <li data-lang="ru">Планировщик с AI-джобами — ремайндеры документов, парсинг кандидатов с job-бордов, разбор звонков, мониторинг топливной авторизации, награды кураторам</li>
+                <li data-lang="en">Persistent browser sessions (NowOil / Avante) for fuel accounting</li>
+                <li data-lang="ru">Постоянные браузер-сессии (NowOil / Avante) для учёта топлива</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · lead engineer</span><span data-lang="ru">Соло · lead engineer</span></dd>
+                <dt><span data-lang="en">Period</span><span data-lang="ru">Период</span></dt><dd>2025 — 2026 · 6 mo</dd>
+                <dt><span data-lang="en">Scale</span><span data-lang="ru">Масштаб</span></dt><dd><b>200K+</b> LOC</dd>
+                <dt><span data-lang="en">Integrations</span><span data-lang="ru">Интеграции</span></dt><dd>Yandex Pro · Bolt Fleet · LETZ · BPay</dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Vue 3</span><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Caddy</span><span class="chip">Linux</span><span class="chip">Telegram API</span><span class="chip">Playwright</span><span class="chip">Groq</span><span class="chip">APScheduler</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="shot"><span class="cap">CRM · dispatch board</span></div>
+          <div class="shot"><span class="cap">Driver PWA · balance</span></div>
+          <div class="shot"><span class="cap">Telegram bot · fuel log</span></div>
+        </div>
       </div>
-      <p data-lang="en">Full AI operations platform for a taxi fleet: 6 PWA portals, 5 Telegram bots, dispatch, and payments. Integrations with Yandex Pro, Bolt Fleet, LETZ and BPay APIs; Playwright automation and Groq Vision (Llama) for captcha; a scheduler running AI jobs — reminders, candidate parsing, monitoring.</p>
-      <p data-lang="ru">Полная AI-платформа управления таксопарком: 6 PWA-порталов, 5 Telegram-ботов, диспетчерская, платежи. Интеграции с Yandex Pro, Bolt Fleet, LETZ и BPay; Playwright-автоматизация и Groq Vision (Llama) для капчи; планировщик с AI-джобами — ремайндеры, парсинг кандидатов, мониторинг.</p>
-      <div class="chips"><span class="chip">Vue 3</span><span class="chip">Flask</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Telegram API</span><span class="chip">Playwright</span><span class="chip">Groq</span></div>
-    </div>
+    </details>
 
-    <div class="proj">
-      <div class="proj-top">
-        <h3><span data-lang="en">Legal-Tech AI Platform</span><span data-lang="ru">Legal-Tech AI платформа</span></h3>
-        <span class="role"><span data-lang="en">Solo · private client</span><span data-lang="ru">Соло · частный клиент</span></span>
+    <!-- AvocatAI -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">02</span>
+        <span class="phead">
+          <h3>AvocatAI</h3>
+          <span class="ptag"><span data-lang="en">AI back-office for a law practice — 1200+ clients</span><span data-lang="ru">AI-бэкофис для адвокатской практики — 1200+ клиентов</span></span>
+          <span class="pmeta">
+            <span class="badge">1200+ <span data-lang="en">clients</span><span data-lang="ru">клиентов</span></span><span class="badge"><span data-lang="en">handwriting OCR</span><span data-lang="ru">OCR рукописей</span></span><span class="badge"><span data-lang="en">doc generation</span><span data-lang="ru">генерация док-в</span></span><span class="badge"><span data-lang="en">headless LLM worker</span><span data-lang="ru">headless LLM-воркер</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">An AI back office for a private legal practice managing <strong>1200+ clients and their case files</strong>. It reads handwriting, drafts legal documents, browses the national court-decisions database and runs heavy analysis through a headless LLM worker — all driven from a desktop control panel for the lawyer.</p>
+            <p data-lang="ru">AI-бэкофис для частной адвокатской практики на <strong>1200+ клиентов и их дела</strong>. Читает рукописи, генерирует юридические документы, ходит по национальной базе судебных решений и гоняет тяжёлый анализ через headless LLM-воркер — всё из десктоп-панели адвоката.</p>
+            <div class="feat">
+              <h4><span data-lang="en">Document intelligence</span><span data-lang="ru">Работа с документами</span></h4>
+              <ul>
+                <li data-lang="en"><b>Handwriting OCR</b> of case materials into structured text</li>
+                <li data-lang="ru"><b>OCR рукописей</b> из материалов дела в структурный текст</li>
+                <li data-lang="en"><b>Automated case analysis</b> — dossiers built from raw files</li>
+                <li data-lang="ru"><b>Автоанализ дел</b> — досье из сырых материалов</li>
+                <li data-lang="en"><b>Legal document generation</b> — contracts, mandates, motions, acts</li>
+                <li data-lang="ru"><b>Генерация юр-документов</b> — договоры, мандаты, ходатайства, акты</li>
+              </ul>
+            </div>
+            <div class="feat">
+              <h4><span data-lang="en">Court-decisions browser (CSJ)</span><span data-lang="ru">Браузер судебных решений (CSJ)</span></h4>
+              <ul>
+                <li data-lang="en">Integrated browser over the national case-law database with pickers to attach precedents to a case</li>
+                <li data-lang="ru">Встроенный браузер по национальной базе прецедентов с пикерами для привязки решений к делу</li>
+              </ul>
+            </div>
+            <div class="feat">
+              <h4><span data-lang="en">Headless LLM worker &amp; desktop Studio</span><span data-lang="ru">Headless LLM-воркер и десктоп-Studio</span></h4>
+              <ul>
+                <li data-lang="en">Background worker pulls queues and runs OCR / analysis / drafting through Claude — heavy jobs off the critical path</li>
+                <li data-lang="ru">Фоновый воркер разбирает очереди и гоняет OCR / анализ / генерацию через Claude — тяжёлое вне критического пути</li>
+                <li data-lang="en"><b>PySide6 desktop panel</b> — services, queues, doc generation, case browser</li>
+                <li data-lang="ru"><b>Десктоп-панель на PySide6</b> — сервисы, очереди, генерация, браузер дел</li>
+                <li data-lang="en">Portable architecture — one path constant relocates the whole platform to a new machine or client, no DB migration</li>
+                <li data-lang="ru">Портативная архитектура — одна константа пути переносит платформу на новую машину/клиента без миграции БД</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · full build</span><span data-lang="ru">Соло · весь билд</span></dd>
+                <dt><span data-lang="en">Clients</span><span data-lang="ru">Клиентов</span></dt><dd><b>1200+</b></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Legal-tech · private</span><span data-lang="ru">Legal-tech · частный</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">FastAPI</span><span class="chip">Claude API</span><span class="chip">PySide6</span><span class="chip">OCR</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Cloudflare Tunnel</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="shot"><span class="cap">Studio · case queue</span></div>
+          <div class="shot"><span class="cap">CSJ · decisions browser</span></div>
+          <div class="shot"><span class="cap">Generated document</span></div>
+        </div>
       </div>
-      <p data-lang="en">AI back office for a law practice serving <strong>1200+ clients</strong>: handwriting OCR, automated case analysis, and document generation. A headless LLM worker processes queues and drafts legal documents; desktop control panel for the lawyer.</p>
-      <p data-lang="ru">AI-бэкофис для адвокатской практики на <strong>1200+ клиентов</strong>: OCR рукописей, автоматический анализ дел, генерация документов. Headless LLM-воркер обрабатывает очереди и готовит юридические документы; десктоп-панель для адвоката.</p>
-      <div class="chips"><span class="chip">FastAPI</span><span class="chip">Claude API</span><span class="chip">PySide6</span><span class="chip">OCR</span><span class="chip">Postgres</span></div>
-    </div>
+    </details>
 
-    <div class="proj">
-      <div class="proj-top">
-        <h3>Aingers Studio</h3>
-        <span class="role"><span data-lang="en">Solo · generative</span><span data-lang="ru">Соло · генеративка</span></span>
+    <!-- Aingers Studio -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">03</span>
+        <span class="phead">
+          <h3>Aingers Studio</h3>
+          <span class="ptag"><span data-lang="en">Self-hosted generative image &amp; video pipeline</span><span data-lang="ru">Самохостинг генеративного пайплайна картинок и видео</span></span>
+          <span class="pmeta">
+            <span class="badge">img2img · SDXL</span><span class="badge">image → video · Wan I2V</span><span class="badge">ComfyUI</span><span class="badge"><span data-lang="en">self-hosted GPU</span><span data-lang="ru">свой GPU</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A self-hosted generative studio built on ComfyUI: turn an image into a new image, or into video — through <strong>reproducible, production-wrapped workflows</strong> that run on local GPU with no per-call API cost.</p>
+            <p data-lang="ru">Самохостинг генеративной студии на ComfyUI: превратить картинку в новую картинку или в видео — через <strong>воспроизводимые, обёрнутые под прод воркфлоу</strong>, которые крутятся на локальном GPU без оплаты за вызов.</p>
+            <div class="feat">
+              <h4><span data-lang="en">Pipelines</span><span data-lang="ru">Пайплайны</span></h4>
+              <ul>
+                <li data-lang="en"><b>img2img (SDXL)</b> — image transformation &amp; style workflows</li>
+                <li data-lang="ru"><b>img2img (SDXL)</b> — трансформация и стилизация изображений</li>
+                <li data-lang="en"><b>Image-to-video (Wan I2V)</b> — animate stills into short clips</li>
+                <li data-lang="ru"><b>Image-to-video (Wan I2V)</b> — анимация статики в короткие клипы</li>
+                <li data-lang="en">Parameterized ComfyUI graphs wrapped for on-demand batch generation, animated WEBP output</li>
+                <li data-lang="ru">Параметризованные ComfyUI-графы под on-demand batch-генерацию, вывод в animated WEBP</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · pipeline</span><span data-lang="ru">Соло · пайплайн</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Generative AI</span><span data-lang="ru">Генеративный AI</span></dd>
+                <dt><span data-lang="en">Host</span><span data-lang="ru">Хост</span></dt><dd><span data-lang="en">Local GPU</span><span data-lang="ru">Локальный GPU</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">ComfyUI</span><span class="chip">SDXL</span><span class="chip">Wan I2V</span><span class="chip">Python</span><span class="chip">CUDA / GPU</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="shots">
+          <div class="shot"><span class="cap">img2img · before / after</span></div>
+          <div class="shot"><span class="cap">Wan I2V · generated clip</span></div>
+          <div class="shot"><span class="cap">ComfyUI · workflow graph</span></div>
+          <div class="shot"><span class="cap">Output gallery</span></div>
+        </div>
       </div>
-      <p data-lang="en">Self-hosted generative image & video pipeline on ComfyUI: img2img (SDXL) and image-to-video (Wan I2V), wrapped in reproducible workflows for on-demand content generation.</p>
-      <p data-lang="ru">Самохостинг генеративного пайплайна картинок и видео на ComfyUI: img2img (SDXL) и image-to-video (Wan I2V), обёрнутые в воспроизводимые воркфлоу для генерации контента по запросу.</p>
-      <div class="chips"><span class="chip">ComfyUI</span><span class="chip">SDXL</span><span class="chip">Wan I2V</span><span class="chip">Python</span></div>
-    </div>
+    </details>
+  </section>
 
-    <div class="proj">
-      <div class="proj-top">
-        <h3>Zyzik</h3>
-        <span class="role"><span data-lang="en">Solo · assistant</span><span data-lang="ru">Соло · ассистент</span></span>
-      </div>
-      <p data-lang="en">Personal AI assistant with voice and chat: a FastAPI + PostgreSQL backend, a React Native app, and an MCP multi-agent hub coordinating tools and memory.</p>
-      <p data-lang="ru">Персональный AI-ассистент с голосом и чатом: бэкенд на FastAPI + PostgreSQL, приложение на React Native и MCP-хаб мультиагентной координации инструментов и памяти.</p>
-      <div class="chips"><span class="chip">FastAPI</span><span class="chip">React Native</span><span class="chip">MCP</span><span class="chip">Claude API</span><span class="chip">Postgres</span></div>
+  <!-- MORE PROJECTS -->
+  <section>
+    <div class="sec-head"><span class="idx">02</span>
+      <h2><span data-lang="en">Also built</span><span data-lang="ru">Также построено</span></h2>
+      <span class="rule"></span>
     </div>
-
-    <div class="proj">
-      <div class="proj-top">
-        <h3>ENTRADA · CarParser999</h3>
-        <span class="role"><span data-lang="en">Solo · SaaS + bots</span><span data-lang="ru">Соло · SaaS + боты</span></span>
+    <div class="grid-more">
+      <div class="mcard">
+        <h4>ENTRADA</h4>
+        <p><span data-lang="en">Employee-onboarding Telegram bot, sold as SaaS to SMB clients.</span><span data-lang="ru">Telegram-бот онбординга сотрудников, продаётся как SaaS малому бизнесу.</span></p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Telegram API</span><span class="chip">SaaS</span></div>
       </div>
-      <p data-lang="en">ENTRADA — an employee-onboarding Telegram bot sold as SaaS to SMB clients. CarParser999 — AI-assisted scrapers for vehicle & job classifieds with Telegram delivery.</p>
-      <p data-lang="ru">ENTRADA — Telegram-бот онбординга сотрудников как SaaS для малого бизнеса. CarParser999 — AI-скраперы объявлений (авто и вакансии) с доставкой в Telegram.</p>
-      <div class="chips"><span class="chip">Python</span><span class="chip">Telegram API</span><span class="chip">Scrapers</span><span class="chip">SaaS</span></div>
+      <div class="mcard">
+        <h4>CarParser999 · 999Radar</h4>
+        <p><span data-lang="en">AI-assisted scrapers for vehicle &amp; job classifieds, delivered to Telegram.</span><span data-lang="ru">AI-скраперы объявлений (авто и вакансии) с доставкой в Telegram.</span></p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Scrapers</span><span class="chip">Playwright</span></div>
+      </div>
+      <div class="mcard">
+        <h4>Akasha</h4>
+        <p><span data-lang="en">AI consultant — numerology &amp; tarot, with a cost calculator and content engine.</span><span data-lang="ru">AI-консультант — нумерология и таро, с калькулятором и контент-движком.</span></p>
+        <div class="chips"><span class="chip">Astro</span><span class="chip">Claude API</span><span class="chip">SEO</span></div>
+      </div>
+      <div class="mcard">
+        <h4>NEIRO</h4>
+        <p><span data-lang="en">Catalog of AI tools &amp; resources.</span><span data-lang="ru">Каталог AI-инструментов и ресурсов.</span></p>
+        <div class="chips"><span class="chip">Vue</span><span class="chip">FastAPI</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="reveal">
-    <div class="sec-head"><span class="idx">04</span>
+  <!-- STACK -->
+  <section>
+    <div class="sec-head"><span class="idx">03</span>
       <h2><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></h2>
+      <span class="rule"></span>
     </div>
     <div class="stack">
       <div class="stack-row"><div class="cat">AI / LLM</div><div class="chips">
-        <span class="chip">Claude API</span><span class="chip">Anthropic SDK</span><span class="chip">OpenAI</span><span class="chip">Groq</span><span class="chip">Ollama</span><span class="chip">local LLMs</span><span class="chip">RAG</span><span class="chip">AI agents</span><span class="chip">tool use</span><span class="chip">Whisper</span><span class="chip">ComfyUI</span><span class="chip">n8n</span>
-      </div></div>
+        <span class="chip">Claude API</span><span class="chip">Anthropic SDK</span><span class="chip">OpenAI</span><span class="chip">Groq</span><span class="chip">Ollama</span><span class="chip">local LLMs</span><span class="chip">RAG</span><span class="chip">AI agents</span><span class="chip">tool use</span><span class="chip">MCP</span><span class="chip">Whisper</span><span class="chip">ComfyUI</span><span class="chip">n8n</span></div></div>
       <div class="stack-row"><div class="cat">Backend</div><div class="chips">
-        <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Node.js</span><span class="chip">Bun</span>
-      </div></div>
+        <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Node.js</span><span class="chip">Bun</span></div></div>
       <div class="stack-row"><div class="cat">Frontend</div><div class="chips">
-        <span class="chip">Vue 3</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Astro</span><span class="chip">Tailwind</span><span class="chip">React Native</span><span class="chip">PWA</span>
-      </div></div>
+        <span class="chip">Vue 3</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Astro</span><span class="chip">Tailwind</span><span class="chip">React Native</span><span class="chip">PWA</span></div></div>
       <div class="stack-row"><div class="cat">Data / Infra</div><div class="chips">
-        <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Caddy / Nginx</span><span class="chip">Cloudflare Tunnel</span><span class="chip">Playwright</span>
-      </div></div>
+        <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Caddy / Nginx</span><span class="chip">Cloudflare Tunnel</span><span class="chip">Playwright</span><span class="chip">NSSM</span></div></div>
     </div>
   </section>
 
-  <section class="reveal">
-    <div class="sec-head"><span class="idx">05</span>
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="sec-head"><span class="idx">04</span>
       <h2><span data-lang="en">Experience</span><span data-lang="ru">Опыт</span></h2>
+      <span class="rule"></span>
     </div>
     <div class="tl">
       <div class="tl-item">
         <div class="when">2026 — <span data-lang="en">now</span><span data-lang="ru">сейчас</span></div>
-        <div class="what">
-          <h3>AINGERS</h3>
+        <div class="what"><h3>AINGERS</h3>
           <div class="org"><span data-lang="en">Founder · AI Developer</span><span data-lang="ru">Основатель · AI-разработчик</span></div>
-          <p data-lang="en">AI-driven IT studio (Chișinău). Production AI systems for business: agents, RAG, automation, voice.</p>
-          <p data-lang="ru">AI-driven IT-студия (Кишинёв). Production AI-системы для бизнеса: агенты, RAG, автоматизация, голос.</p>
+          <p data-lang="en">AI-driven IT studio (Chișinău). Production AI systems for business: agents, RAG, automation, voice, generative.</p>
+          <p data-lang="ru">AI-driven IT-студия (Кишинёв). Production AI-системы для бизнеса: агенты, RAG, автоматизация, голос, генеративка.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="when">2025 — 2026</div>
-        <div class="what">
-          <h3>ChefTaxi</h3>
+        <div class="what"><h3>ChefTaxi</h3>
           <div class="org"><span data-lang="en">Contract · Senior Full-Stack</span><span data-lang="ru">Контракт · Senior Full-Stack</span></div>
           <p data-lang="en">Built the entire fleet AI platform solo — 200K+ LOC in 6 months.</p>
           <p data-lang="ru">В одиночку построил всю AI-платформу таксопарка — 200K+ строк за 6 месяцев.</p>
@@ -327,17 +525,15 @@
       </div>
       <div class="tl-item">
         <div class="when">2025 — <span data-lang="en">now</span><span data-lang="ru">сейчас</span></div>
-        <div class="what">
-          <h3><span data-lang="en">Freelance practice</span><span data-lang="ru">Фриланс-практика</span></h3>
+        <div class="what"><h3><span data-lang="en">Freelance practice</span><span data-lang="ru">Фриланс-практика</span></h3>
           <div class="org"><span data-lang="en">AI Developer / Automation</span><span data-lang="ru">AI-разработчик / автоматизация</span></div>
-          <p data-lang="en">Independent AI & automation projects; the umbrella above ChefTaxi and AINGERS.</p>
-          <p data-lang="ru">Независимые AI- и automation-проекты; зонтик над ChefTaxi и AINGERS.</p>
+          <p data-lang="en">Independent AI &amp; automation projects — the umbrella above ChefTaxi and AINGERS.</p>
+          <p data-lang="ru">Независимые AI- и automation-проекты — зонтик над ChefTaxi и AINGERS.</p>
         </div>
       </div>
       <div class="tl-item">
         <div class="when">— 2024</div>
-        <div class="what">
-          <h3><span data-lang="en">Web development</span><span data-lang="ru">Веб-разработка</span></h3>
+        <div class="what"><h3><span data-lang="en">Web development</span><span data-lang="ru">Веб-разработка</span></h3>
           <div class="org"><span data-lang="en">Freelance · HTML / PHP / JS</span><span data-lang="ru">Фриланс · HTML / PHP / JS</span></div>
           <p data-lang="en">Sites and web apps before the full move into AI.</p>
           <p data-lang="ru">Сайты и веб-приложения до полного перехода в AI.</p>
@@ -346,9 +542,11 @@
     </div>
   </section>
 
-  <section class="reveal">
-    <div class="sec-head"><span class="idx">06</span>
+  <!-- LANGUAGES -->
+  <section>
+    <div class="sec-head"><span class="idx">05</span>
       <h2><span data-lang="en">Languages</span><span data-lang="ru">Языки</span></h2>
+      <span class="rule"></span>
     </div>
     <div class="langs">
       <div class="lang-item"><div class="lg"><span data-lang="en">Russian</span><span data-lang="ru">Русский</span></div><div class="lv"><span data-lang="en">Native</span><span data-lang="ru">Родной</span></div><div class="bar"><i style="width:100%"></i></div></div>
@@ -358,7 +556,7 @@
   </section>
 
   <footer>
-    <span class="mono"><span data-lang="en">Available for AI engineering roles & contracts</span><span data-lang="ru">Открыт к AI-инженерным ролям и контрактам</span></span>
+    <span class="avail"><span class="dot"></span><span data-lang="en">Available for AI engineering roles &amp; contracts</span><span data-lang="ru">Открыт к AI-инженерным ролям и контрактам</span></span>
     <span class="mono">© 2026 · GreyYoga</span>
   </footer>
 
@@ -386,6 +584,5 @@
     if(t){ document.documentElement.setAttribute('data-theme', t); document.getElementById('theme-i').textContent = t==='dark'?'◑':'◐'; }
   })();
 </script>
-
 </body>
 </html>
