@@ -869,6 +869,108 @@
         </div>
       </div>
     </details>
+
+    <!-- AvTeacher -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">06</span>
+        <span class="phead">
+          <h3>AvTeacher</h3>
+          <span class="ptag"><span data-lang="en">An AI testing platform built on the teacher's own textbooks — pick a chapter, AI drafts the test, the teacher approves it, students sit it under integrity telemetry, and a full electronic journal keeps the grades.</span><span data-lang="ru">AI-платформа тестирования по учебникам самого преподавателя — выбрал главу, AI собрал черновик теста, препод одобрил, ученики проходят под анти-чит-телеметрией, а всё ведёт полноценный электронный журнал.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">AI test-gen from books</span><span data-lang="ru">AI-тесты из книг</span></span><span class="badge"><span data-lang="en">draft → review → publish</span><span data-lang="ru">черновик → ревью → публикация</span></span><span class="badge"><span data-lang="en">anti-cheat telemetry</span><span data-lang="ru">анти-чит телеметрия</span></span><span class="badge"><span data-lang="en">electronic journal</span><span data-lang="ru">электронный журнал</span></span><span class="badge">GreyClaude · 0 API</span><span class="badge">PWA</span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A multi-user teaching platform for a law lecturer. The system ingests the actual course books, an AI builds a clean topic tree from the table of contents, and from any chapter it drafts a test. Because this is law — where a wrong answer matters — <strong>every AI question is a draft the teacher reviews, edits and approves before it can be published</strong>. Students take it as a <strong>"one-question-on-screen"</strong> exam under behavior telemetry, everything is auto-graded, and a full <strong>electronic journal</strong> tracks attendance, grades and homework.</p>
+            <p data-lang="ru">Многопользовательская платформа для преподавателя права. Система загружает сами учебники курса, AI строит чистое дерево тем из оглавления и по любой главе собирает тест. Это право — где цена ошибки высока — поэтому <strong>каждый AI-вопрос это черновик, который препод вычитывает, правит и одобряет до публикации</strong>. Ученики проходят экзамен <strong>«вопрос-на-экран»</strong> под поведенческой телеметрией, всё оценивается автоматически, а полноценный <strong>электронный журнал</strong> ведёт посещаемость, оценки и домашки.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">AI test generation from real books</span><span data-lang="ru">AI-генерация тестов из реальных книг</span></h4>
+              <ul>
+                <li data-lang="en"><b>Book ingestion</b> — PDF (PyMuPDF) and Word are parsed into books, topics and text chunks; an <b>AI reads the table of contents</b> to build an ordered topic tree with real page numbers (two modes — numbered ToC vs. body-scan that locates each section by its unique heading)</li>
+                <li data-lang="ru"><b>Загрузка книг</b> — PDF (PyMuPDF) и Word разбираются на книги, темы и текстовые чанки; <b>AI читает оглавление</b> и строит упорядоченное дерево тем с реальными страницами (два режима — оглавление с номерами vs. скан тела, находящий раздел по уникальному заголовку)</li>
+                <li data-lang="en"><b>Six question types</b> (single / multiple / true-false / fill / match / open) generated with <b>source-page citations and explanations</b>; each carries a difficulty and stays a <b>draft until the teacher approves it</b></li>
+                <li data-lang="ru"><b>Шесть типов вопросов</b> (один / несколько / верно-неверно / вписать / сопоставить / открытый) с <b>ссылкой на страницу и пояснением</b>; у каждого сложность, и он <b>черновик, пока препод не одобрит</b></li>
+                <li data-lang="en"><b>GreyClaude ↔ API engine toggle</b> — heavy generation runs through a queue + worker on a headless Claude subscription (<b>0 API cost</b>); flip to the metered API when you want it synchronous. Same engine family as AvocatAI</li>
+                <li data-lang="ru"><b>Тумблер движка GreyClaude ↔ API</b> — тяжёлая генерация идёт через очередь + воркер на headless-подписке Claude (<b>0 API-затрат</b>); переключаешься на метрический API, когда нужно синхронно. Тот же движок, что в AvocatAI</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Exam integrity &amp; behavior telemetry</span><span data-lang="ru">Честность экзамена и поведенческая телеметрия</span></h4>
+              <ul>
+                <li data-lang="en"><b>Unique test per student</b> — each attempt samples N questions from the approved pool, with question and option order shuffled (grading still reconciles the permutation)</li>
+                <li data-lang="ru"><b>Уникальный тест на ученика</b> — каждая попытка берёт N вопросов из одобренного пула, порядок вопросов и вариантов перемешан (оценка сходится по сохранённой перестановке)</li>
+                <li data-lang="en"><b>Behavior telemetry</b> — tab-blur, copy/paste, idle, per-question timings, answer-change counts and the first (hesitation) answer fold into a <b>composite suspicion score</b>; no webcam</li>
+                <li data-lang="ru"><b>Поведенческая телеметрия</b> — уход с вкладки, копипаст, простой, тайминги по вопросам, число смен ответа и первый (колебание) ответ складываются в <b>индекс подозрительности</b>; без вебки</li>
+                <li data-lang="en">Telemetry is <b>batched on the client</b> (buffered, flushed every ~10s / on question change) so the single-writer SQLite is never hammered; the teacher watches attempts on a live monitor</li>
+                <li data-lang="ru">Телеметрия <b>батчится на клиенте</b> (буфер, флэш раз в ~10с / на смене вопроса), чтобы не забить single-writer SQLite; препод видит попытки на live-мониторе</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Multi-user &amp; electronic journal</span><span data-lang="ru">Мультиюзер и электронный журнал</span></h4>
+              <ul>
+                <li data-lang="en"><b>Real multi-user</b> — teacher / student roles, JWT auth, groups/cohorts and per-student data isolation; students self-register</li>
+                <li data-lang="ru"><b>Настоящий мультиюзер</b> — роли препод / ученик, JWT-авторизация, группы и изоляция данных по ученику; ученики регаются сами</li>
+                <li data-lang="en"><b>Electronic journal</b> — lessons (lecture / seminar / lab / exam), attendance (present / absent / late / excused), weighted grades by term and homework with submissions; <b>test results flow straight into grades</b></li>
+                <li data-lang="ru"><b>Электронный журнал</b> — занятия (лекция / семинар / лаб / экзамен), посещаемость (был / нет / опоздал / уважит.), взвешенные оценки по семестрам и домашки со сдачами; <b>результаты тестов сразу падают в оценки</b></li>
+                <li data-lang="en">Student cabinet — my tests, take-test, a result breakdown with explanations and page references, and history; desktop + mobile <b>PWA</b>, light/dark</li>
+                <li data-lang="ru">Кабинет ученика — мои тесты, прохождение, разбор результата с пояснениями и ссылками на страницы, история; десктоп + мобилка <b>PWA</b>, light/dark</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Legal EdTech · AI testing</span><span data-lang="ru">Legal EdTech · AI-тесты</span></dd>
+                <dt><span data-lang="en">DB</span><span data-lang="ru">БД</span></dt><dd><span data-lang="en">13 tables · DB-agnostic</span><span data-lang="ru">13 таблиц · DB-агностично</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd><span data-lang="en">Single-port · CF Tunnel</span><span data-lang="ru">Single-port · CF Tunnel</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">FastAPI</span><span class="chip">SQLAlchemy async</span><span class="chip">SQLite / WAL</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span><span class="chip">PWA</span><span class="chip">PyMuPDF</span><span class="chip">Claude</span><span class="chip">GreyClaude</span><span class="chip">PySide6</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · from a course book to a graded, integrity-checked exam</span><span data-lang="ru">Пайплайн · от учебника к оценённому экзамену с проверкой честности</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Course book</span><span data-lang="ru">Учебник</span></div>
+              <div class="sd"><span data-lang="en">PDF / Word → AI topic tree</span><span data-lang="ru">PDF / Word → AI-дерево тем</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">AI drafts test</span><span data-lang="ru">AI собрал тест</span></div>
+              <div class="sd"><span data-lang="en">GreyClaude / API · 6 question types</span><span data-lang="ru">GreyClaude / API · 6 типов вопросов</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Teacher approves</span><span data-lang="ru">Препод одобрил</span></div>
+              <div class="sd"><span data-lang="en">review · edit · publish</span><span data-lang="ru">ревью · правка · публикация</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Student sits it</span><span data-lang="ru">Ученик проходит</span></div>
+              <div class="sd"><span data-lang="en">one-question-on-screen · telemetry</span><span data-lang="ru">вопрос-на-экран · телеметрия</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Grade + journal</span><span data-lang="ru">Оценка + журнал</span></div>
+              <div class="sd"><span data-lang="en">auto-score · suspicion index · e-journal</span><span data-lang="ru">автооценка · индекс подозрит. · журнал</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
