@@ -614,9 +614,9 @@
         <span class="pnum">03</span>
         <span class="phead">
           <h3>Aingers Studio</h3>
-          <span class="ptag"><span data-lang="en">Self-hosted generative image &amp; video pipeline</span><span data-lang="ru">Самохостинг генеративного пайплайна картинок и видео</span></span>
+          <span class="ptag"><span data-lang="en">A self-hosted generative studio — image, video, upscale and voice on local GPU at zero API cost, and scriptable so AI agents generate their own assets.</span><span data-lang="ru">Самохостинг генеративной студии — картинки, видео, апскейл и озвучка на локальном GPU с нулевой стоимостью API, и скриптуемая так, что AI-агенты сами генерят себе ассеты.</span></span>
           <span class="pmeta">
-            <span class="badge">img2img · SDXL</span><span class="badge">image → video · Wan I2V</span><span class="badge">ComfyUI</span><span class="badge"><span data-lang="en">self-hosted GPU</span><span data-lang="ru">свой GPU</span></span>
+            <span class="badge">SDXL + Flux · txt2img / img2img</span><span class="badge"><span data-lang="en">video · Wan 2.1</span><span data-lang="ru">видео · Wan 2.1</span></span><span class="badge">Real-ESRGAN ×4</span><span class="badge"><span data-lang="en">voice clone · XTTS v2</span><span data-lang="ru">клон голоса · XTTS v2</span></span><span class="badge"><span data-lang="en">agent-operated</span><span data-lang="ru">агенты сами</span></span><span class="badge">0 API</span>
           </span>
         </span>
         <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -624,62 +624,71 @@
       <div class="pbody">
         <div class="pbody-grid">
           <div class="narr">
-            <p data-lang="en">A self-hosted generative studio built on ComfyUI: turn an image into a new image, or into video — through <strong>reproducible, production-wrapped workflows</strong> that run on local GPU with no per-call API cost.</p>
-            <p data-lang="ru">Самохостинг генеративной студии на ComfyUI: превратить картинку в новую картинку или в видео — через <strong>воспроизводимые, обёрнутые под прод воркфлоу</strong>, которые крутятся на локальном GPU без оплаты за вызов.</p>
+            <p data-lang="en">A native desktop generative studio (PySide6) over a local ComfyUI + Ollama stack — image, video, upscaling and voice, all on my own GPU with <strong>no per-call or subscription cost</strong>. The thing that made it pay off: every generator is <strong>wrapped as workflow-JSON and driven in code</strong>, so my <strong>AI agents call it directly</strong> — when an agent builds a site or a PDF it generates the images itself instead of handing me prompts to run.</p>
+            <p data-lang="ru">Нативная десктоп-студия генерации (PySide6) над локальным стеком ComfyUI + Ollama — картинки, видео, апскейл и озвучка, всё на своём GPU и <strong>без оплаты за вызов или подписки</strong>. Что окупило её: каждый генератор <strong>обёрнут в workflow-JSON и управляется кодом</strong>, поэтому мои <strong>AI-агенты дёргают её напрямую</strong> — когда агент делает сайт или PDF, он сам генерит картинки, а не кидает мне промпты на прогон.</p>
             <div class="feat">
-              <h4><span data-lang="en">Pipelines</span><span data-lang="ru">Пайплайны</span></h4>
+              <h4><span data-lang="en">Image · video · upscale · voice</span><span data-lang="ru">Картинки · видео · апскейл · озвучка</span></h4>
               <ul>
-                <li data-lang="en"><b>img2img (SDXL)</b> — image transformation &amp; style workflows</li>
-                <li data-lang="ru"><b>img2img (SDXL)</b> — трансформация и стилизация изображений</li>
-                <li data-lang="en"><b>Image-to-video (Wan I2V)</b> — animate stills into short clips</li>
-                <li data-lang="ru"><b>Image-to-video (Wan I2V)</b> — анимация статики в короткие клипы</li>
-                <li data-lang="en">Parameterized ComfyUI graphs wrapped for on-demand batch generation, animated WEBP output</li>
-                <li data-lang="ru">Параметризованные ComfyUI-графы под on-demand batch-генерацию, вывод в animated WEBP</li>
+                <li data-lang="en"><b>Image</b> — SDXL / IllustriousXL / Pony and Flux.1 (schnell 4-step &amp; dev), <b>txt2img and img2img</b>, resolution presets, sampler/scheduler control, plus a built-in prompt assistant (a local LLM writes the prompt)</li>
+                <li data-lang="ru"><b>Картинки</b> — SDXL / IllustriousXL / Pony и Flux.1 (schnell 4 шага и dev), <b>txt2img и img2img</b>, пресеты разрешений, выбор сэмплера/планировщика, плюс встроенный промпт-ассистент (локальная LLM пишет промпт)</li>
+                <li data-lang="en"><b>Video</b> — Wan 2.1 text-to-video and 14B image-to-video, plus LTX; output to MP4 / animated WEBP (quality scales with the GPU)</li>
+                <li data-lang="ru"><b>Видео</b> — Wan 2.1 text-to-video и 14B image-to-video, плюс LTX; вывод в MP4 / animated WEBP (качество зависит от GPU)</li>
+                <li data-lang="en"><b>Upscale</b> — Real-ESRGAN ×4 for stills and video (per-frame, re-muxed to MP4)</li>
+                <li data-lang="ru"><b>Апскейл</b> — Real-ESRGAN ×4 для фото и видео (по кадрам, обратно в MP4)</li>
+                <li data-lang="en"><b>Voice</b> — Piper + XTTS v2 (HD, voice cloning) as embedded TTS, and a local uncensored LLM chat (Ollama)</li>
+                <li data-lang="ru"><b>Озвучка</b> — Piper + XTTS v2 (HD, клонирование голоса) как встроенный TTS, и локальный uncensored-чат (Ollama)</li>
+              </ul>
+            </div>
+            <div class="feat">
+              <h4><span data-lang="en">Agent-operated &amp; self-hosted</span><span data-lang="ru">Управляется агентами и на своём железе</span></h4>
+              <ul>
+                <li data-lang="en">Everything runs locally on GPU via <b>ComfyUI + Ollama</b> — <b>zero per-call or subscription cost</b>, no data leaves the machine</li>
+                <li data-lang="ru">Всё крутится локально на GPU через <b>ComfyUI + Ollama</b> — <b>ноль оплаты за вызов и подписки</b>, данные не покидают машину</li>
+                <li data-lang="en">Each generator is <b>scriptable workflow-JSON</b> submitted to ComfyUI and polled to completion — the reason agents can self-serve assets end-to-end</li>
+                <li data-lang="ru">Каждый генератор — <b>скриптуемый workflow-JSON</b>, отправляемый в ComfyUI с опросом готовности — почему агенты и могут добывать ассеты сами под ключ</li>
+                <li data-lang="en">A <b>PySide6 control panel</b> manages the servers (start/stop/logs), model inventory and GPU/RAM</li>
+                <li data-lang="ru"><b>Панель управления на PySide6</b> рулит серверами (старт/стоп/логи), инвентарём моделей и GPU/RAM</li>
               </ul>
             </div>
           </div>
           <div class="aside">
             <div class="facts">
               <dl>
-                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo · pipeline</span><span data-lang="ru">Соло · пайплайн</span></dd>
-                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Generative AI</span><span data-lang="ru">Генеративный AI</span></dd>
-                <dt><span data-lang="en">Host</span><span data-lang="ru">Хост</span></dt><dd><span data-lang="en">Local GPU</span><span data-lang="ru">Локальный GPU</span></dd>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Generative AI · desktop</span><span data-lang="ru">Генеративный AI · десктоп</span></dd>
+                <dt><span data-lang="en">Host</span><span data-lang="ru">Хост</span></dt><dd><span data-lang="en">Local GPU · 0 API</span><span data-lang="ru">Локальный GPU · 0 API</span></dd>
               </dl>
             </div>
             <div>
               <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
-              <div class="chips"><span class="chip">ComfyUI</span><span class="chip">SDXL</span><span class="chip">Wan I2V</span><span class="chip">Python</span><span class="chip">CUDA / GPU</span></div>
+              <div class="chips"><span class="chip">PySide6</span><span class="chip">ComfyUI</span><span class="chip">SDXL</span><span class="chip">Flux.1</span><span class="chip">Wan 2.1</span><span class="chip">LTX</span><span class="chip">Real-ESRGAN</span><span class="chip">XTTS v2</span><span class="chip">Piper</span><span class="chip">Ollama</span><span class="chip">Python</span><span class="chip">CUDA</span></div>
             </div>
           </div>
         </div>
         <div class="arch">
-          <div class="arch-cap"><span data-lang="en">Generative pipeline · running on local GPU</span><span data-lang="ru">Генеративный пайплайн · на локальном GPU</span></div>
+          <div class="arch-cap"><span data-lang="en">Pipeline · an agent (or I) asks, the studio produces the asset</span><span data-lang="ru">Пайплайн · агент (или я) просит — студия выдаёт ассет</span></div>
           <div class="flow">
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Agent / prompt</span><span data-lang="ru">Агент / промпт</span></div>
+              <div class="sd"><span data-lang="en">needs an image, video or voiceover</span><span data-lang="ru">нужна картинка, видео или озвучка</span></div>
+            </div>
+            <div class="arrow">→</div>
             <div class="step">
-              <div class="st"><span data-lang="en">Input image</span><span data-lang="ru">Входное фото</span></div>
-              <div class="sd"><span data-lang="en">photo / prompt</span><span data-lang="ru">фото / промпт</span></div>
+              <div class="st"><span data-lang="en">Studio</span><span data-lang="ru">Студия</span></div>
+              <div class="sd"><span data-lang="en">builds workflow-JSON</span><span data-lang="ru">строит workflow-JSON</span></div>
             </div>
             <div class="arrow">→</div>
             <div class="step hi">
-              <div class="st">img2img</div>
-              <div class="sd"><span data-lang="en">restyle · inpaint · upscale</span><span data-lang="ru">рестайл · инпейнт · апскейл</span></div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step hi">
-              <div class="st">Wan I2V</div>
-              <div class="sd"><span data-lang="en">image → video clip</span><span data-lang="ru">картинка → видео-клип</span></div>
+              <div class="st"><span data-lang="en">Local GPU</span><span data-lang="ru">Локальный GPU</span></div>
+              <div class="sd">SDXL / Flux · Wan · Real-ESRGAN · XTTS</div>
             </div>
             <div class="arrow">→</div>
             <div class="step">
-              <div class="st">ComfyUI</div>
-              <div class="sd"><span data-lang="en">node workflow orchestration</span><span data-lang="ru">оркестрация нод-графа</span></div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step">
-              <div class="st"><span data-lang="en">Output</span><span data-lang="ru">Результат</span></div>
-              <div class="sd"><span data-lang="en">gallery · delivery</span><span data-lang="ru">галерея · выдача</span></div>
+              <div class="st"><span data-lang="en">Asset</span><span data-lang="ru">Ассет</span></div>
+              <div class="sd"><span data-lang="en">straight into the site / PDF</span><span data-lang="ru">сразу в сайт / PDF</span></div>
             </div>
           </div>
+          <div class="flow-note"><span data-lang="en">Runs entirely on local GPU — zero per-call or subscription cost, nothing leaves the machine.</span><span data-lang="ru">Полностью на локальном GPU — ноль оплаты за вызов и подписки, ничего не покидает машину.</span></div>
         </div>
       </div>
     </details>
