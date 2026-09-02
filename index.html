@@ -793,22 +793,38 @@
               <ul>
                 <li data-lang="en"><b>HR configures everything from the admin</b> — a welcome form, an unlimited number of training modules with <b>media (video, photos, documents)</b> and quizzes tuned any way they need, all without touching code</li>
                 <li data-lang="ru"><b>HR настраивает всё из админки</b> — welcome-анкета, неограниченное число модулей обучения с <b>медиа (видео, фото, документы)</b> и квизы под любую задачу, всё без единой строчки кода</li>
+                <li data-lang="en"><b>Every bot text is editable from the panel</b> — greeting, completion, HR notifications, module headers — with <code>{firstName}</code> variables and one-click reset to default</li>
+                <li data-lang="ru"><b>Все тексты бота правятся из панели</b> — приветствие, завершение, HR-уведомления, заголовки модулей — с переменными <code>{firstName}</code> и сбросом к дефолту в один клик</li>
                 <li data-lang="en"><b>The new hire runs it all in Telegram</b> from the first login (grammY bot) — no app to install, no separate login</li>
                 <li data-lang="ru"><b>Новичок проходит всё в Telegram</b> с первого входа (бот на grammY) — ничего не ставить, отдельного логина нет</li>
-                <li data-lang="en"><b>Multilingual</b> — ru / en / ro out of the box, more languages on request</li>
-                <li data-lang="ru"><b>Мультиязычный</b> — ru / en / ro из коробки, другие языки по запросу</li>
+                <li data-lang="en"><b>Multilingual</b> — ru / en / ro, more languages on request</li>
+                <li data-lang="ru"><b>Мультиязычный</b> — ru / en / ro, другие языки по запросу</li>
               </ul>
             </div>
 
             <div class="feat">
-              <h4><span data-lang="en">Real-time tracking &amp; engineering</span><span data-lang="ru">Real-time контроль и инженерия</span></h4>
+              <h4><span data-lang="en">Candidate journey &amp; HR control</span><span data-lang="ru">Путь кандидата и контроль HR</span></h4>
               <ul>
-                <li data-lang="en"><b>Real-time dashboard</b> (admin PWA, React 19) — who has completed onboarding, quiz scores per person and where they got stuck, at a glance</li>
-                <li data-lang="ru"><b>Real-time дашборд</b> (админ-PWA, React 19) — кто прошёл онбординг, оценки квизов по каждому и где затык — сразу видно</li>
-                <li data-lang="en"><b>CSV export</b> — pull the data out to plug into your existing HR systems</li>
-                <li data-lang="ru"><b>Экспорт в CSV</b> — выгрузка данных для интеграции с вашими HR-системами</li>
-                <li data-lang="en"><b>Bun monorepo</b> (bot / admin / shared types) over a <b>Hono REST API + Drizzle ORM + PostgreSQL</b>; deploys on managed PostgreSQL (Railway)</li>
-                <li data-lang="ru"><b>Bun-монорепо</b> (bot / admin / общие типы) поверх <b>Hono REST API + Drizzle ORM + PostgreSQL</b>; деплой на managed PostgreSQL (Railway)</li>
+                <li data-lang="en"><b>7-step candidate profile</b> (name, city, phone, date of birth, experience, about, photo) — <b>gated behind HR approval</b>: HR gets a push and opens the form for the candidate</li>
+                <li data-lang="ru"><b>Анкета кандидата в 7 шагов</b> (имя, город, телефон, дата рождения, опыт, о себе, фото) — <b>только после апрува HR</b>: HR получает пуш и открывает анкету кандидату</li>
+                <li data-lang="en"><b>Quizzes after each module</b> — multiple-choice <b>and open answers</b>, with time-on-module tracking and a <code>/progress</code> status view (done / in&nbsp;progress / not&nbsp;started)</li>
+                <li data-lang="ru"><b>Квизы после каждого модуля</b> — выбор варианта <b>и открытый ответ</b>, с замером времени на модуль и меню <code>/progress</code> (пройдено / в&nbsp;процессе / не&nbsp;начато)</li>
+                <li data-lang="en"><b>Candidate card for HR</b> — per-module scores, profile &amp; photo, a <b>star rating (1–5) with notes</b>, and profile reset</li>
+                <li data-lang="ru"><b>Карточка кандидата для HR</b> — баллы по модулям, анкета и фото, <b>звёздная оценка (1–5) с заметками</b> и сброс профиля</li>
+                <li data-lang="en"><b>Real-time dashboard</b> — total / completed / in-progress / average score, with sort &amp; search, plus <b>CSV export</b> into your HR systems</li>
+                <li data-lang="ru"><b>Real-time дашборд</b> — всего / завершили / в процессе / средний балл, сортировка и поиск, плюс <b>экспорт в CSV</b> в ваши HR-системы</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Engineering</span><span data-lang="ru">Инженерия</span></h4>
+              <ul>
+                <li data-lang="en"><b>Bun monorepo</b> — <code>bot</code>, <code>admin</code> and a <code>shared</code> types package, so the same types flow across the bot and the admin with no drift</li>
+                <li data-lang="ru"><b>Bun-монорепо</b> — <code>bot</code>, <code>admin</code> и пакет общих типов <code>shared</code>: одни и те же типы ходят между ботом и админкой без рассинхрона</li>
+                <li data-lang="en"><b>Hono REST API + Drizzle ORM + PostgreSQL</b> on the backend; <b>React 19 + Vite + Tailwind v4</b> admin PWA; JWT (HS256) auth with panel-user management</li>
+                <li data-lang="ru"><b>Hono REST API + Drizzle ORM + PostgreSQL</b> на бэке; админ-<b>PWA на React 19 + Vite + Tailwind v4</b>; авторизация JWT (HS256) с управлением юзерами панели</li>
+                <li data-lang="en">Productized to onboard for any company — <b>a new client is live in 15 minutes</b></li>
+                <li data-lang="ru">Продуктизирован под онбординг любой компании — <b>новый клиент в проде за 15 минут</b></li>
               </ul>
             </div>
           </div>
@@ -817,12 +833,12 @@
               <dl>
                 <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
                 <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Onboarding SaaS</span><span data-lang="ru">Онбординг-SaaS</span></dd>
-                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>Railway · PostgreSQL</dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>Netlify · CF Tunnel</dd>
               </dl>
             </div>
             <div>
               <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
-              <div class="chips"><span class="chip">Bun</span><span class="chip">grammY</span><span class="chip">Hono</span><span class="chip">Drizzle ORM</span><span class="chip">PostgreSQL</span><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Tailwind v4</span><span class="chip">PWA</span></div>
+              <div class="chips"><span class="chip">Bun</span><span class="chip">grammY</span><span class="chip">Hono</span><span class="chip">Drizzle ORM</span><span class="chip">PostgreSQL</span><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Tailwind v4</span><span class="chip">JWT</span><span class="chip">PWA</span></div>
             </div>
           </div>
         </div>
