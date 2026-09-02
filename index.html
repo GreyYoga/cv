@@ -683,6 +683,91 @@
         </div>
       </div>
     </details>
+
+    <!-- 999parser -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">04</span>
+        <span class="phead">
+          <h3>999parser</h3>
+          <span class="ptag"><span data-lang="en">A real-time watcher for Moldova's biggest classifieds (999.md) — saved searches turn into instant Telegram alerts. Be first to a new listing.</span><span data-lang="ru">Real-time вотчер по крупнейшей доске объявлений Молдовы (999.md) — сохранённые поиски превращаются в мгновенные алерты в Telegram. Первым на новое объявление.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">real-time alerts</span><span data-lang="ru">real-time алерты</span></span><span class="badge"><span data-lang="en">any category</span><span data-lang="ru">любая категория</span></span><span class="badge"><span data-lang="en">standalone or distributed</span><span data-lang="ru">standalone или распределённо</span></span><span class="badge"><span data-lang="en">anti-bot hardened</span><span data-lang="ru">защита от бан-детекта</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A monitoring engine for <strong>999.md</strong>, Moldova's largest classifieds site. You save a search — cars, real estate, electronics, anything — with include/exclude keywords, and the moment a matching listing appears it lands in your Telegram with photos, price and a link. On a hot market the person who sees the ad first wins the deal; this closes that gap to <strong>minutes instead of manual refreshing</strong>.</p>
+            <p data-lang="ru">Движок мониторинга <strong>999.md</strong> — крупнейшей доски объявлений Молдовы. Сохраняешь поиск — авто, недвижимость, электроника, что угодно — с ключевыми словами и исключениями, и как только появляется подходящее объявление, оно падает в Telegram с фото, ценой и ссылкой. На горячем рынке сделку забирает тот, кто увидел объявление первым; тут разрыв сжимается до <strong>минут вместо ручного обновления</strong>.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Watchers &amp; universal parser</span><span data-lang="ru">Вотчеры и универсальный парсер</span></h4>
+              <ul>
+                <li data-lang="en"><b>Watchers</b> — each is a saved search (URL + include/exclude keywords) with <b>per-watcher dedup</b> (seen-IDs), so you get every new match exactly once, never a repeat</li>
+                <li data-lang="ru"><b>Вотчеры</b> — каждый это сохранённый поиск (URL + ключевые слова и исключения) с <b>дедупом по каждому вотчеру</b> (список известных ID): каждое новое совпадение приходит ровно раз, без повторов</li>
+                <li data-lang="en"><b>Universal Playwright parser</b> — works on any 999.md category; extracts id, title, price, description, images, region (phone on demand)</li>
+                <li data-lang="ru"><b>Универсальный Playwright-парсер</b> — работает с любой категорией 999.md; тянет id, заголовок, цену, описание, фото, регион (телефон по требованию)</li>
+                <li data-lang="en"><b>Telegram bot</b> — <code>/start</code> to subscribe, seed run backfills the baseline, then delta runs push only what's new, with photos and a direct link</li>
+                <li data-lang="ru"><b>Telegram-бот</b> — <code>/start</code> для подписки, наполняющий прогон задаёт базу, дальше дельта-прогоны шлют только новое — с фото и прямой ссылкой</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Two architectures &amp; anti-detection</span><span data-lang="ru">Две архитектуры и анти-детект</span></h4>
+              <ul>
+                <li data-lang="en"><b>Standalone</b> — fully autonomous on one machine: watchers, dedup and bot all local, <b>zero infra, no VPS</b></li>
+                <li data-lang="ru"><b>Standalone</b> — полностью автономно на одной машине: вотчеры, дедуп и бот локально, <b>ноль инфры, без VPS</b></li>
+                <li data-lang="en"><b>Distributed</b> — a worker pulls jobs from a backend (<code>/api/remote-parse/jobs</code>) and submits results, so a <b>fleet of scrapers</b> can feed one bot and scale out</li>
+                <li data-lang="ru"><b>Распределённо</b> — воркер забирает задания с бэка (<code>/api/remote-parse/jobs</code>) и сдаёт результаты: <b>флот скраперов</b> кормит одного бота и масштабируется</li>
+                <li data-lang="en"><b>Anti-detection</b> — rotating user-agents, human-like jitter, retry with exponential backoff, a short TTL cache and graceful rate-limit handling keep it alive against bot-blocks</li>
+                <li data-lang="ru"><b>Анти-детект</b> — ротация user-agent, человеко-подобные задержки, ретраи с экспоненциальным backoff, TTL-кэш и аккуратная работа с rate-limit держат его живым против бан-детекта</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Scraping · alerts</span><span data-lang="ru">Скрейпинг · алерты</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd><span data-lang="en">Standalone / VPS+worker</span><span data-lang="ru">Standalone / VPS+воркер</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">asyncio</span><span class="chip">Telegram Bot API</span><span class="chip">requests</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · saved search → instant Telegram alert</span><span data-lang="ru">Пайплайн · сохранённый поиск → мгновенный алерт в Telegram</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Watcher</span><span data-lang="ru">Вотчер</span></div>
+              <div class="sd"><span data-lang="en">search URL + keywords / exclusions</span><span data-lang="ru">URL поиска + ключи / исключения</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Playwright scrape</span><span data-lang="ru">Playwright-скрейп</span></div>
+              <div class="sd"><span data-lang="en">999.md · anti-detect · retries</span><span data-lang="ru">999.md · анти-детект · ретраи</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Dedup</span><span data-lang="ru">Дедуп</span></div>
+              <div class="sd"><span data-lang="en">seen-IDs · only what's new</span><span data-lang="ru">известные ID · только новое</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st">Telegram</div>
+              <div class="sd"><span data-lang="en">photos · price · link, instantly</span><span data-lang="ru">фото · цена · ссылка, сразу</span></div>
+            </div>
+          </div>
+          <div class="flow-note"><span data-lang="en">Runs standalone (zero infra) or as a distributed worker fleet behind one backend.</span><span data-lang="ru">Работает standalone (ноль инфры) или как распределённый флот воркеров за одним бэкендом.</span></div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
@@ -696,11 +781,6 @@
         <h4>ENTRADA</h4>
         <p><span data-lang="en">Employee-onboarding Telegram bot, sold as SaaS to SMB clients.</span><span data-lang="ru">Telegram-бот онбординга сотрудников, продаётся как SaaS малому бизнесу.</span></p>
         <div class="chips"><span class="chip">Python</span><span class="chip">Telegram API</span><span class="chip">SaaS</span></div>
-      </div>
-      <div class="mcard">
-        <h4>CarParser999 · 999Radar</h4>
-        <p><span data-lang="en">AI-assisted scrapers for vehicle &amp; job classifieds, delivered to Telegram.</span><span data-lang="ru">AI-скраперы объявлений (авто и вакансии) с доставкой в Telegram.</span></p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Scrapers</span><span class="chip">Playwright</span></div>
       </div>
       <div class="mcard">
         <h4>Akasha</h4>
