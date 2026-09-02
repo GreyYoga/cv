@@ -1067,6 +1067,101 @@
         </div>
       </div>
     </details>
+
+    <!-- Realty Autopost -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">08</span>
+        <span class="phead">
+          <h3>Realty Autopost</h3>
+          <span class="ptag"><span data-lang="en">A rental-agency pipeline: it scrapes fresh listings by exact criteria, reformats them into the agency's house style, and drops them into a Telegram approval bot — the manager just calls, taps publish, and it goes to the group.</span><span data-lang="ru">Воронка для агентства аренды: парсит свежие объявления по точным критериям, переформатирует в фирменный стиль агентства и кидает в Telegram-бот на апрув — менеджеру остаётся позвонить, нажать «опубликовать», и оно уходит в группу.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">parse → format → approve → post</span><span data-lang="ru">парс → формат → апрув → пост</span></span><span class="badge"><span data-lang="en">fresh every 5–10 min</span><span data-lang="ru">свежак каждые 5–10 мин</span></span><span class="badge"><span data-lang="en">human-in-the-loop bot</span><span data-lang="ru">бот с человеком в контуре</span></span><span class="badge"><span data-lang="en">dedup DB</span><span data-lang="ru">база-дедуп</span></span><span class="badge"><span data-lang="en">client-ready format</span><span data-lang="ru">формат клиента</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A business-process automation for a Chișinău rental agency. Before it, a manager had to camp on the classifieds all day — hunt fresh listings, rewrite them, call, edit and post to the group by hand. Now fresh listings arrive on their own <strong>every 5–10 minutes, already in the agency's format</strong>; the manager only calls the owner and taps <strong>yes / no / comment / publish</strong>. A dedup database makes sure a listing that gets re-posted on the source never floods the channel twice.</p>
+            <p data-lang="ru">Автоматизация бизнес-процесса для агентства аренды в Кишинёве. Раньше менеджер весь день сидел на доске объявлений — ловил свежак, переписывал, звонил, редактировал и постил в группу руками. Теперь свежие объявления приходят сами <strong>каждые 5–10 минут, уже в формате агентства</strong>; менеджеру остаётся позвонить владельцу и нажать <strong>да / нет / коммент / опубликовать</strong>. База-дедуп следит, чтобы переопубликованное на источнике объявление не залетало в канал дважды.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Parameter-filtered scraping</span><span data-lang="ru">Парсинг по параметрам</span></h4>
+              <ul>
+                <li data-lang="en"><b>Playwright + BeautifulSoup</b> scrape the classifieds filtered by exact criteria (flat type, price band, districts, newest-first), running on a loop</li>
+                <li data-lang="ru"><b>Playwright + BeautifulSoup</b> парсят доску по точным критериям (тип жилья, ценовой диапазон, районы, сначала свежие), работают в цикле</li>
+                <li data-lang="en">Each new ad's detail page is opened to pull <b>price, date, phone</b> (clicking "show number"), address, description, features, house rules and photos</li>
+                <li data-lang="ru">По каждому новому объявлению открывается карточка — тянутся <b>цена, дата, телефон</b> (клик «показать номер»), адрес, описание, характеристики, правила дома и фото</li>
+                <li data-lang="en"><b>Dedup database</b> — listings are keyed so a re-posted ad never re-enters the pipeline; statuses move pending → sent → approved</li>
+                <li data-lang="ru"><b>База-дедуп</b> — объявления идут по ключу, переопубликованное не попадает в воронку заново; статусы pending → sent → approved</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Auto-format to the client's house style</span><span data-lang="ru">Автоформат в фирменный стиль</span></h4>
+              <ul>
+                <li data-lang="en">A formatter turns raw data into the <b>ready-to-publish post</b> — every feature mapped to an emoji (balcony, parking, lift, heating…), rooms normalised (0 → studio), noise fields stripped, full and short variants</li>
+                <li data-lang="ru">Форматтер превращает сырьё в <b>готовый к публикации пост</b> — каждая фича с эмодзи (балкон, парковка, лифт, отопление…), нормализация комнат (0 → студия), отсев мусорных полей, полный и краткий варианты</li>
+                <li data-lang="en">So the ad reaches the manager already looking exactly like the channel's own posts — no rewriting</li>
+                <li data-lang="ru">Объявление доходит до менеджера уже как посты самого канала — переписывать не надо</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Human-in-the-loop Telegram bot</span><span data-lang="ru">Telegram-бот с человеком в контуре</span></h4>
+              <ul>
+                <li data-lang="en">The formatted ad plus a photo album lands in a <b>moderation chat</b> with <b>Publish / Comment</b> buttons; the manager can edit the caption right in Telegram</li>
+                <li data-lang="ru">Готовое объявление с альбомом фото падает в <b>чат модерации</b> с кнопками <b>Опубликовать / Комментарий</b>; менеджер правит подпись прямо в Telegram</li>
+                <li data-lang="en"><b>Publish</b> copies the edited text and posts it to the main channel as a media group, then marks it approved with a timestamp in the DB</li>
+                <li data-lang="ru"><b>Опубликовать</b> копирует отредактированный текст и постит в основной канал медиа-группой, затем ставит approved с меткой времени в БД</li>
+                <li data-lang="en">A <b>Flask web editor</b> gives a richer structured edit (rooms, district, map link, price, pets/kids, area, floor, amenities, heating…)</li>
+                <li data-lang="ru"><b>Flask веб-редактор</b> даёт богатую структурную правку (комнаты, район, ссылка на карту, цена, животные/дети, площадь, этаж, удобства, отопление…)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Process automation</span><span data-lang="ru">Автоматизация процесса</span></dd>
+                <dt><span data-lang="en">Impact</span><span data-lang="ru">Эффект</span></dt><dd><span data-lang="en">All-day hunting → one tap</span><span data-lang="ru">Целый день ловли → одна кнопка</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>VPS</dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">Playwright</span><span class="chip">BeautifulSoup</span><span class="chip">python-telegram-bot</span><span class="chip">Pyrogram</span><span class="chip">MySQL</span><span class="chip">Flask</span><span class="chip">SQLAlchemy</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · classifieds to a published, human-approved post</span><span data-lang="ru">Пайплайн · от доски объявлений к опубликованному посту с апрувом человека</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Scrape by params</span><span data-lang="ru">Парс по параметрам</span></div>
+              <div class="sd"><span data-lang="en">every 5–10 min · phone · photos</span><span data-lang="ru">каждые 5–10 мин · телефон · фото</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Format to house style</span><span data-lang="ru">Формат под стиль</span></div>
+              <div class="sd"><span data-lang="en">emoji features · ready post</span><span data-lang="ru">фичи с эмодзи · готовый пост</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Approval bot</span><span data-lang="ru">Бот апрува</span></div>
+              <div class="sd"><span data-lang="en">call · edit · yes / no / comment</span><span data-lang="ru">звонок · правка · да / нет / коммент</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Publish + dedup</span><span data-lang="ru">Публикация + дедуп</span></div>
+              <div class="sd"><span data-lang="en">to the group · never twice</span><span data-lang="ru">в группу · без повторов</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
