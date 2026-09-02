@@ -1083,7 +1083,7 @@
         <span class="pnum">08</span>
         <span class="phead">
           <h3>Realty Autopost</h3>
-          <span class="ptag"><span data-lang="en">A rental-agency pipeline: it scrapes fresh listings by exact criteria, reformats them into the agency's house style, and drops them into a Telegram approval bot — the manager just calls, taps publish, and it goes to the group.</span><span data-lang="ru">Воронка для агентства аренды: парсит свежие объявления по точным критериям, переформатирует в фирменный стиль агентства и кидает в Telegram-бот на апрув — менеджеру остаётся позвонить, нажать «опубликовать», и оно уходит в группу.</span></span>
+          <span class="ptag"><span data-lang="en">A pipeline for a rental agency: it collects new listings by exact criteria, reformats them into the agency's house style and routes them to a Telegram approval bot — the manager reviews and publishes to the channel in one tap.</span><span data-lang="ru">Пайплайн для агентства аренды: собирает новые объявления по точным критериям, переформатирует в фирменный стиль агентства и направляет в Telegram-бот на модерацию — менеджер проверяет и одним нажатием публикует в канал.</span></span>
           <span class="pmeta">
             <span class="badge"><span data-lang="en">parse → format → approve → post</span><span data-lang="ru">парс → формат → апрув → пост</span></span><span class="badge"><span data-lang="en">fresh every 5–10 min</span><span data-lang="ru">свежак каждые 5–10 мин</span></span><span class="badge"><span data-lang="en">human-in-the-loop bot</span><span data-lang="ru">бот с человеком в контуре</span></span><span class="badge"><span data-lang="en">dedup DB</span><span data-lang="ru">база-дедуп</span></span><span class="badge"><span data-lang="en">client-ready format</span><span data-lang="ru">формат клиента</span></span>
           </span>
@@ -1093,8 +1093,8 @@
       <div class="pbody">
         <div class="pbody-grid">
           <div class="narr">
-            <p data-lang="en">A business-process automation for a Chișinău rental agency. Before it, a manager had to camp on the classifieds all day — hunt fresh listings, rewrite them, call, edit and post to the group by hand. Now fresh listings arrive on their own <strong>every 5–10 minutes, already in the agency's format</strong>; the manager only calls the owner and taps <strong>yes / no / comment / publish</strong>. A dedup database makes sure a listing that gets re-posted on the source never floods the channel twice.</p>
-            <p data-lang="ru">Автоматизация бизнес-процесса для агентства аренды в Кишинёве. Раньше менеджер весь день сидел на доске объявлений — ловил свежак, переписывал, звонил, редактировал и постил в группу руками. Теперь свежие объявления приходят сами <strong>каждые 5–10 минут, уже в формате агентства</strong>; менеджеру остаётся позвонить владельцу и нажать <strong>да / нет / коммент / опубликовать</strong>. База-дедуп следит, чтобы переопубликованное на источнике объявление не залетало в канал дважды.</p>
+            <p data-lang="en">A workflow automation for a Chișinău rental agency. Previously a manager monitored new listings on the classifieds by hand — rewriting each one, calling owners, editing and posting to the group manually. Now fresh listings arrive automatically <strong>every 5–10 minutes, already in the agency's format</strong>; the manager simply contacts the owner and, in one tap, <strong>approves, rejects, comments or publishes</strong>. A deduplication database ensures a listing re-posted on the source never reaches the channel twice.</p>
+            <p data-lang="ru">Автоматизация рабочего процесса для агентства аренды в Кишинёве. Раньше менеджер вручную отслеживал новые объявления на доске — переписывал каждое, обзванивал владельцев, редактировал и публиковал в группе. Теперь свежие объявления поступают автоматически <strong>каждые 5–10 минут, уже в формате агентства</strong>; менеджеру достаточно связаться с владельцем и одним нажатием <strong>одобрить, отклонить, прокомментировать или опубликовать</strong>. База дедупликации гарантирует, что повторно размещённое на источнике объявление не попадёт в канал второй раз.</p>
 
             <div class="feat">
               <h4><span data-lang="en">Parameter-filtered scraping</span><span data-lang="ru">Парсинг по параметрам</span></h4>
@@ -1136,7 +1136,7 @@
                 <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
                 <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Process automation</span><span data-lang="ru">Автоматизация процесса</span></dd>
                 <dt><span data-lang="en">Period</span><span data-lang="ru">Период</span></dt><dd><span data-lang="en">Feb 2026</span><span data-lang="ru">фев 2026</span></dd>
-                <dt><span data-lang="en">Impact</span><span data-lang="ru">Эффект</span></dt><dd><span data-lang="en">All-day hunting → one tap</span><span data-lang="ru">Целый день ловли → одна кнопка</span></dd>
+                <dt><span data-lang="en">Impact</span><span data-lang="ru">Эффект</span></dt><dd><span data-lang="en">Manual all-day work → one tap</span><span data-lang="ru">День ручной работы → одно нажатие</span></dd>
                 <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>VPS</dd>
               </dl>
             </div>
@@ -1161,7 +1161,7 @@
             <div class="arrow">→</div>
             <div class="step hi">
               <div class="st"><span data-lang="en">Approval bot</span><span data-lang="ru">Бот апрува</span></div>
-              <div class="sd"><span data-lang="en">call · edit · yes / no / comment</span><span data-lang="ru">звонок · правка · да / нет / коммент</span></div>
+              <div class="sd"><span data-lang="en">review · edit · approve / reject</span><span data-lang="ru">проверка · правка · одобрить / отклонить</span></div>
             </div>
             <div class="arrow">→</div>
             <div class="step">
