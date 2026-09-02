@@ -971,6 +971,102 @@
         </div>
       </div>
     </details>
+
+    <!-- TextToVideo Studio -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">07</span>
+        <span class="phead">
+          <h3>TextToVideo Studio</h3>
+          <span class="ptag"><span data-lang="en">A desktop studio that turns a written script into a narrated video — import a document, pick a voice, and render an MP4 with background, styled captions and music.</span><span data-lang="ru">Десктоп-студия, превращающая текстовый сценарий в озвученное видео — импортируешь документ, выбираешь голос и рендеришь MP4 с фоном, стилизованными титрами и музыкой.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">script → MP4</span><span data-lang="ru">сценарий → MP4</span></span><span class="badge">Google TTS · Gemini / WaveNet</span><span class="badge"><span data-lang="en">multilingual voices</span><span data-lang="ru">мультиязычные голоса</span></span><span class="badge"><span data-lang="en">per-phrase voices</span><span data-lang="ru">голос на фразу</span></span><span class="badge"><span data-lang="en">standalone .exe</span><span data-lang="ru">standalone .exe</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A native desktop app (PySide6) that automates the whole "text → talking video" pipeline. You write or import a script, the app splits it into phrases, voices each one with Google Cloud TTS, and composes a finished video — background, styled captions, narration and music — rendering straight to MP4. Built for people producing content in volume, packaged as a <strong>one-click standalone Windows app</strong>.</p>
+            <p data-lang="ru">Нативное десктоп-приложение (PySide6), автоматизирующее весь путь «текст → говорящее видео». Пишешь или импортируешь сценарий, приложение разбивает его на фразы, озвучивает каждую через Google Cloud TTS и собирает готовое видео — фон, стилизованные титры, озвучка и музыка — с рендером сразу в MP4. Сделано под тех, кто гонит контент потоком, упаковано в <strong>standalone-приложение под Windows в один клик</strong>.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Script → narrated video</span><span data-lang="ru">Сценарий → озвученное видео</span></h4>
+              <ul>
+                <li data-lang="en"><b>Import a .docx scenario</b> — the parser keeps bold runs as formatting and uses blank lines to split the script into phrase groups; or type it right in the editor</li>
+                <li data-lang="ru"><b>Импорт сценария из .docx</b> — парсер сохраняет жирный текст как форматирование и режет сценарий на группы фраз по пустым строкам; или набираешь прямо в редакторе</li>
+                <li data-lang="en"><b>Per-phrase control</b> — each phrase is its own block with its own text and voice; render assembles them into one continuous video</li>
+                <li data-lang="ru"><b>Управление по фразам</b> — каждая фраза это отдельный блок со своим текстом и голосом; рендер собирает их в одно непрерывное видео</li>
+                <li data-lang="en"><b>Rendered with moviepy</b> — captions drawn via Pillow with full typography, composited over the background with narration and music, exported to MP4</li>
+                <li data-lang="ru"><b>Рендер на moviepy</b> — титры отрисовываются через Pillow с полной типографикой, накладываются на фон с озвучкой и музыкой, экспорт в MP4</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Voices &amp; composition</span><span data-lang="ru">Голоса и композиция</span></h4>
+              <ul>
+                <li data-lang="en"><b>Google Cloud TTS voice catalog</b> — the app pulls and sorts every voice across families (Gemini Pro / Flash, Journey, Chirp, News, WaveNet, Standard), including 30 named Gemini personas, and lets you pick per phrase</li>
+                <li data-lang="ru"><b>Каталог голосов Google Cloud TTS</b> — приложение тянет и сортирует все голоса по семействам (Gemini Pro / Flash, Journey, Chirp, News, WaveNet, Standard), включая 30 именованных Gemini-персон, и даёт выбирать на каждую фразу</li>
+                <li data-lang="en"><b>Multilingual</b> — ru / en / ro / fr / de / es / it / zh / hi / ja / pt out of the box</li>
+                <li data-lang="ru"><b>Мультиязычно</b> — ru / en / ro / fr / de / es / it / zh / hi / ja / pt из коробки</li>
+                <li data-lang="en"><b>Visual composition</b> — image or video backgrounds, caption typography (font, bold/italic, colour, position via a layout toolbar), fade in/out and a looped background-music track with volume control; a preview dialog before you commit to a render</li>
+                <li data-lang="ru"><b>Визуальная композиция</b> — фон картинкой или видео, типографика титров (шрифт, жир/курсив, цвет, позиция через тулбар раскладки), fade in/out и зацикленная фоновая музыка с громкостью; окно предпросмотра до запуска рендера</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Desktop UX</span><span data-lang="ru">Десктоп UX</span></h4>
+              <ul>
+                <li data-lang="en"><b>PySide6 dark-theme studio</b> — a three-pane layout (scenario side panel · center preview · inspector), with <b>presets and scenario templates</b> for a quick start</li>
+                <li data-lang="ru"><b>Студия на PySide6 в тёмной теме</b> — три панели (сценарий слева · превью в центре · инспектор), с <b>пресетами и шаблонами сценариев</b> для быстрого старта</li>
+                <li data-lang="en"><b>Threaded rendering</b> — a background worker with a live progress bar keeps the UI responsive during export</li>
+                <li data-lang="ru"><b>Рендер в потоке</b> — фоновый воркер с живым прогресс-баром держит интерфейс отзывчивым во время экспорта</li>
+                <li data-lang="en"><b>Packaged with PyInstaller</b> — ships as a self-contained Windows app, no Python setup for the end user</li>
+                <li data-lang="ru"><b>Упаковано через PyInstaller</b> — поставляется самодостаточным Windows-приложением, конечному пользователю не нужен Python</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Desktop · media automation</span><span data-lang="ru">Десктоп · медиа-автоматизация</span></dd>
+                <dt><span data-lang="en">Output</span><span data-lang="ru">Выход</span></dt><dd><span data-lang="en">MP4 · standalone .exe</span><span data-lang="ru">MP4 · standalone .exe</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">moviepy</span><span class="chip">Pillow</span><span class="chip">Google Cloud TTS</span><span class="chip">python-docx</span><span class="chip">PyInstaller</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · a document becomes a narrated MP4</span><span data-lang="ru">Пайплайн · документ превращается в озвученный MP4</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Script</span><span data-lang="ru">Сценарий</span></div>
+              <div class="sd"><span data-lang="en">.docx import / typed → phrases</span><span data-lang="ru">импорт .docx / набор → фразы</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Voice per phrase</span><span data-lang="ru">Голос на фразу</span></div>
+              <div class="sd">Google TTS · Gemini / WaveNet</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Compose</span><span data-lang="ru">Композиция</span></div>
+              <div class="sd"><span data-lang="en">background · captions · music</span><span data-lang="ru">фон · титры · музыка</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Render MP4</span><span data-lang="ru">Рендер MP4</span></div>
+              <div class="sd"><span data-lang="en">moviepy · threaded · progress</span><span data-lang="ru">moviepy · в потоке · прогресс</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
