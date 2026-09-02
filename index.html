@@ -1272,6 +1272,91 @@
         </div>
       </div>
     </details>
+
+    <!-- Taxi Price Radar -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">10</span>
+        <span class="phead">
+          <h3>Taxi Price Radar</h3>
+          <span class="ptag"><span data-lang="en">Competitor price intelligence for a ride-hailing operator — tracks Yandex, Bolt and Letz fares along set routes on a schedule, including apps with no API by driving real Android phones over ADB.</span><span data-lang="ru">Конкурентная price-разведка для оператора такси — следит за ценами Yandex, Bolt и Letz по заданным маршрутам по расписанию, включая приложения без API — через управление реальными Android-телефонами по ADB.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">price tracking on schedule</span><span data-lang="ru">цены по расписанию</span></span><span class="badge">Yandex · Bolt · Letz</span><span class="badge"><span data-lang="en">ADB phone automation</span><span data-lang="ru">ADB-автоматизация телефонов</span></span><span class="badge"><span data-lang="en">Telegram alerts</span><span data-lang="ru">алерты в Telegram</span></span><span class="badge"><span data-lang="en">XLSX export</span><span data-lang="ru">экспорт XLSX</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">A competitor-pricing radar built for a ride-hailing operator. It watches what Yandex, Bolt and Letz charge on the operator's own key routes, on a schedule, and stores it as a time series to compare against. The hard part: two of the three have no web or API — so the app <strong>drives real Android phones over ADB</strong>, typing the address, picking the suggestion and reading the fare off the screen. Built in a single night; desktop app plus a Dockerised backend.</p>
+            <p data-lang="ru">Радар цен конкурентов для оператора такси. Следит, сколько берут Yandex, Bolt и Letz на ключевых маршрутах оператора, по расписанию, и складывает это как time-series для сравнения. Сложное: у двух из трёх нет ни веба, ни API — поэтому приложение <strong>управляет реальными Android-телефонами по ADB</strong>, вбивает адрес, выбирает подсказку и считывает цену с экрана. Собрано за одну ночь; десктоп-приложение плюс бэкенд в Docker.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Price tracking across three aggregators</span><span data-lang="ru">Трекинг цен по трём агрегаторам</span></h4>
+              <ul>
+                <li data-lang="en"><b>Yandex</b> — parsed from its XML endpoint; <b>Bolt &amp; Letz</b> — no API, so scraped by <b>automating real Android phones over ADB</b> (enter address → pick suggestion → read the fare), with anti-detection</li>
+                <li data-lang="ru"><b>Yandex</b> — парсинг XML-эндпоинта; <b>Bolt и Letz</b> — API нет, поэтому снимаются <b>автоматизацией реальных Android-телефонов по ADB</b> (ввести адрес → выбрать подсказку → прочитать цену), с анти-детектом</li>
+                <li data-lang="en">Each reading is stored per route — <b>provider, tariff, price, currency, ETA, timestamp</b> — a time series you can chart and <b>export to XLSX</b></li>
+                <li data-lang="ru">Каждый замер пишется по маршруту — <b>провайдер, тариф, цена, валюта, ETA, время</b> — time-series для графиков и <b>экспорта в XLSX</b></li>
+                <li data-lang="en">An <b>APScheduler</b> loop polls every N minutes (configurable from the UI, no restart), across as many routes as you add</li>
+                <li data-lang="ru"><b>APScheduler</b> опрашивает каждые N минут (меняется из UI без рестарта), по любому числу маршрутов</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">App, alerts &amp; deployment</span><span data-lang="ru">Приложение, алерты и деплой</span></h4>
+              <ul>
+                <li data-lang="en"><b>PySide6 desktop app</b> (Routes / Prices / FB / Alerts / Settings) over a <b>FastAPI + SQLite backend in Docker</b> — the whole thing moves to the client's machine with one compose file</li>
+                <li data-lang="ru"><b>Десктоп-приложение на PySide6</b> (Маршруты / Цены / FB / Алерты / Настройки) над <b>FastAPI + SQLite бэкендом в Docker</b> — весь стенд переезжает на машину клиента одним compose-файлом</li>
+                <li data-lang="en"><b>Facebook-group monitoring</b> — watches groups for keywords (Bolt / Yandex / Letz) and fires <b>Telegram alerts</b> (aiogram) on new mentions, rotating several accounts round-robin</li>
+                <li data-lang="ru"><b>Мониторинг FB-групп</b> — следит за группами по ключам (Bolt / Yandex / Letz) и шлёт <b>алерты в Telegram</b> (aiogram) на новые упоминания, ротация нескольких аккаунтов round-robin</li>
+                <li data-lang="en">Data model: routes, price readings, FB groups/mentions/accounts, settings and an audit log</li>
+                <li data-lang="ru">Модель данных: маршруты, замеры цен, FB группы/упоминания/аккаунты, настройки и аудит-лог</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Price intelligence</span><span data-lang="ru">Price-разведка</span></dd>
+                <dt><span data-lang="en">Trick</span><span data-lang="ru">Фишка</span></dt><dd><span data-lang="en">ADB scraping, no API</span><span data-lang="ru">ADB-скрейп без API</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>Docker Compose</dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">Docker</span><span class="chip">ADB</span><span class="chip">APScheduler</span><span class="chip">aiogram</span><span class="chip">openpyxl</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Pipeline · routes polled on a schedule into a comparable price history</span><span data-lang="ru">Пайплайн · маршруты опрашиваются по расписанию в сравнимую историю цен</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">Routes</span><span data-lang="ru">Маршруты</span></div>
+              <div class="sd"><span data-lang="en">from / to · schedule</span><span data-lang="ru">откуда / куда · расписание</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Scrape fares</span><span data-lang="ru">Снять цены</span></div>
+              <div class="sd"><span data-lang="en">Yandex XML · Bolt/Letz via ADB</span><span data-lang="ru">Yandex XML · Bolt/Letz через ADB</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Time series</span><span data-lang="ru">Time-series</span></div>
+              <div class="sd"><span data-lang="en">price · ETA · timestamp</span><span data-lang="ru">цена · ETA · время</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Alerts + XLSX</span><span data-lang="ru">Алерты + XLSX</span></div>
+              <div class="sd"><span data-lang="en">Telegram · export</span><span data-lang="ru">Telegram · экспорт</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
