@@ -1162,6 +1162,107 @@
         </div>
       </div>
     </details>
+
+    <!-- Memory & Agents -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">09</span>
+        <span class="phead">
+          <h3><span data-lang="en">Persistent AI Memory &amp; Agent Orchestration</span><span data-lang="ru">Персональная AI-память и оркестрация агентов</span></h3>
+          <span class="ptag"><span data-lang="en">A personal AI stack: a semantic long-term memory every agent shares, an MCP server that exposes it as tools, and an orchestrator running specialized agents on a Claude subscription at zero API cost.</span><span data-lang="ru">Персональный AI-стек: семантическая долговременная память, общая для всех агентов, MCP-сервер, отдающий её как инструменты, и оркестратор, гоняющий специализированных агентов на подписке Claude с нулевой стоимостью API.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">hybrid RAG</span><span data-lang="ru">гибридный RAG</span></span><span class="badge">vector + BM25 + RRF</span><span class="badge">MCP server</span><span class="badge"><span data-lang="en">multi-agent</span><span data-lang="ru">мульти-агент</span></span><span class="badge">GreyClaude · 0 API</span><span class="badge"><span data-lang="en">local-first</span><span data-lang="ru">local-first</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">The infrastructure that lets a fleet of AI agents actually remember and act. At its core is a <strong>semantic long-term memory</strong> — hundreds of markdown notes indexed for meaning — that every agent reads and writes through an <strong>MCP server</strong>. On top sits an <strong>agentic orchestrator</strong> that runs specialized agents with real tools, and <strong>GreyClaude</strong> — a headless-Claude-subscription worker that does the heavy lifting at <strong>zero API cost</strong>. It's the engine behind the memory and the 0-API economics reused across the other projects here.</p>
+            <p data-lang="ru">Инфраструктура, которая даёт флоту AI-агентов реально помнить и действовать. В основе — <strong>семантическая долговременная память</strong> (сотни markdown-заметок, проиндексированных по смыслу), которую каждый агент читает и пишет через <strong>MCP-сервер</strong>. Сверху — <strong>агентный оркестратор</strong> со специализированными агентами и реальными инструментами, и <strong>GreyClaude</strong> — воркер на headless-подписке Claude, тянущий тяжёлое с <strong>нулевой стоимостью API</strong>. Это движок памяти и 0-API экономики, переиспользованный в остальных проектах здесь.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Semantic long-term memory (hybrid RAG)</span><span data-lang="ru">Семантическая память (гибридный RAG)</span></h4>
+              <ul>
+                <li data-lang="en"><b>700+ markdown notes indexed into ChromaDB</b> with multilingual embeddings (<code>intfloat/multilingual-e5-base</code>, 768-dim, RU / EN / RO / HE, CPU)</li>
+                <li data-lang="ru"><b>700+ markdown-заметок в ChromaDB</b> с мультиязычными эмбеддингами (<code>intfloat/multilingual-e5-base</code>, 768-dim, RU / EN / RO / HE, на CPU)</li>
+                <li data-lang="en"><b>Hybrid retrieval</b> — vector similarity <b>+ BM25 keyword + RRF fusion + dedup</b>, which recalls far better than pure vector search alone</li>
+                <li data-lang="ru"><b>Гибридный retrieval</b> — векторная близость <b>+ BM25 по ключевым + RRF-fusion + дедуп</b>, что вспоминает заметно лучше чистого вектора</li>
+                <li data-lang="en">Served over a <b>FastAPI</b> API (search / health / reindex) with a CLI and a <b>file-watcher that re-indexes on change</b>; portable, local-first with a remote backup mirror, and secrets excluded from the index</li>
+                <li data-lang="ru">Отдаётся через <b>FastAPI</b> (search / health / reindex), с CLI и <b>вотчером, переиндексирующим при изменении</b>; портативно, local-first с удалённым бэкап-зеркалом, секреты в индекс не попадают</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">MCP server &amp; multi-agent orchestration</span><span data-lang="ru">MCP-сервер и мульти-агентная оркестрация</span></h4>
+              <ul>
+                <li data-lang="en"><b>Model Context Protocol server</b> (TypeScript, <code>@modelcontextprotocol/sdk</code>) exposes the shared memory and a multi-agent chat channel as tools any Claude client can call</li>
+                <li data-lang="ru"><b>MCP-сервер</b> (TypeScript, <code>@modelcontextprotocol/sdk</code>) отдаёт общую память и мульти-агентный чат как инструменты, доступные любому Claude-клиенту</li>
+                <li data-lang="en"><b>Several specialized agents</b> (backend, infra, mobile, analytics) share one memory and a message bus, with status/heartbeat and task assignment</li>
+                <li data-lang="ru"><b>Несколько специализированных агентов</b> (backend, инфра, mobile, аналитика) делят одну память и шину сообщений, со статусом/heartbeat и назначением задач</li>
+                <li data-lang="en">An <b>agentic orchestrator</b> runs a bounded tool-use loop with real tools — shell commands, file read/write, Docker, logs — to operate the server autonomously</li>
+                <li data-lang="ru"><b>Агентный оркестратор</b> крутит ограниченный tool-use цикл с реальными инструментами — shell-команды, чтение/запись файлов, Docker, логи — чтобы автономно рулить сервером</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">GreyClaude — 0-API-cost engine</span><span data-lang="ru">GreyClaude — движок с нулевой стоимостью API</span></h4>
+              <ul>
+                <li data-lang="en">Heavy generation is routed through a <b>queue + a headless-Claude-subscription worker</b> instead of the metered API — the same output at <b>zero per-call cost</b></li>
+                <li data-lang="ru">Тяжёлая генерация идёт через <b>очередь + воркер на headless-подписке Claude</b> вместо метрического API — тот же результат при <b>нулевой стоимости за вызов</b></li>
+                <li data-lang="en">A single engine abstraction with an <b>API ↔ GreyClaude toggle</b>, reused as the AI backend across AvocatAI, ChefTaxi and AvTeacher</li>
+                <li data-lang="ru">Единая абстракция движка с <b>тумблером API ↔ GreyClaude</b>, переиспользована как AI-бэкенд в AvocatAI, ChefTaxi и AvTeacher</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">AI infra · RAG + agents</span><span data-lang="ru">AI-инфра · RAG + агенты</span></dd>
+                <dt><span data-lang="en">Cost</span><span data-lang="ru">Стоимость</span></dt><dd><span data-lang="en">0 API via GreyClaude</span><span data-lang="ru">0 API через GreyClaude</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd><span data-lang="en">Local-first + backup</span><span data-lang="ru">Local-first + бэкап</span></dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">ChromaDB</span><span class="chip">sentence-transformers</span><span class="chip">e5</span><span class="chip">rank-bm25</span><span class="chip">RRF</span><span class="chip">MCP</span><span class="chip">TypeScript</span><span class="chip">Claude</span><span class="chip">GreyClaude</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Architecture · memory the agents share, an engine that runs free</span><span data-lang="ru">Архитектура · память общая для агентов, движок работает бесплатно</span></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Memory</span><span data-lang="ru">Память</span></div>
+            <div class="nodes">
+              <span class="node">700+ notes</span><span class="node hi">ChromaDB · e5 <span data-lang="en">embeddings</span><span data-lang="ru">эмбеддинги</span></span><span class="node hi">vector + BM25 + RRF</span><span class="node">FastAPI · watcher</span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Access</span><span data-lang="ru">Доступ</span></div>
+            <div class="nodes">
+              <span class="node hi">MCP server</span><span class="node"><span data-lang="en">shared memory + chat as tools</span><span data-lang="ru">общая память + чат как инструменты</span></span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Agents</span><span data-lang="ru">Агенты</span></div>
+            <div class="nodes">
+              <span class="node">backend</span><span class="node">infra</span><span class="node">mobile</span><span class="node">analytics</span><span class="node hi"><span data-lang="en">orchestrator · tools</span><span data-lang="ru">оркестратор · инструменты</span></span>
+            </div>
+          </div>
+          <div class="arch-sep"></div>
+          <div class="layer">
+            <div class="ll"><span data-lang="en">Engine</span><span data-lang="ru">Движок</span></div>
+            <div class="nodes">
+              <span class="node hi">GreyClaude · 0 API</span><span class="node">API <span data-lang="en">toggle</span><span data-lang="ru">тумблер</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
