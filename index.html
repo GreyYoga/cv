@@ -768,6 +768,90 @@
         </div>
       </div>
     </details>
+
+    <!-- ENTRADA -->
+    <details class="proj">
+      <summary>
+        <span class="pnum">05</span>
+        <span class="phead">
+          <h3>ENTRADA</h3>
+          <span class="ptag"><span data-lang="en">Employee onboarding that lives inside Telegram — new hires learn through structured modules and quizzes in the chat they already use, while an admin PWA tracks every step.</span><span data-lang="ru">Онбординг сотрудников прямо в Telegram — новички проходят структурированные модули и квизы в мессенджере, которым уже пользуются, а админ-PWA видит каждый шаг.</span></span>
+          <span class="pmeta">
+            <span class="badge"><span data-lang="en">Telegram-native</span><span data-lang="ru">в Telegram</span></span><span class="badge"><span data-lang="en">modules + quizzes</span><span data-lang="ru">модули + квизы</span></span><span class="badge"><span data-lang="en">admin PWA</span><span data-lang="ru">админ-PWA</span></span><span class="badge"><span data-lang="en">type-safe monorepo</span><span data-lang="ru">типобезопасный монорепо</span></span>
+          </span>
+        </span>
+        <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
+      </summary>
+      <div class="pbody">
+        <div class="pbody-grid">
+          <div class="narr">
+            <p data-lang="en">An onboarding platform delivered where staff already are — <strong>Telegram</strong>. A new hire opens the bot and walks through structured learning modules with quizzes; the business runs it all from an <strong>admin PWA</strong> — employees, content and per-person progress. No app to install, no login friction: the fastest path to a productive new hire.</p>
+            <p data-lang="ru">Платформа онбординга там, где сотрудники и так сидят — в <strong>Telegram</strong>. Новичок открывает бота и проходит структурированные обучающие модули с квизами; бизнес управляет всем из <strong>админ-PWA</strong> — сотрудники, контент, прогресс по каждому. Ничего не ставить, никакого трения с входом: кратчайший путь к готовому к работе новичку.</p>
+
+            <div class="feat">
+              <h4><span data-lang="en">Onboarding bot &amp; admin</span><span data-lang="ru">Бот онбординга и админка</span></h4>
+              <ul>
+                <li data-lang="en"><b>Telegram bot</b> (grammY) — the new hire goes through <b>6 seeded learning modules</b>, each with content and <b>quiz questions</b>; answers are checked and progress is saved per employee</li>
+                <li data-lang="ru"><b>Telegram-бот</b> (grammY) — новичок проходит <b>6 предзагруженных модулей</b>, в каждом контент и <b>вопросы-квизы</b>; ответы проверяются, прогресс сохраняется по каждому сотруднику</li>
+                <li data-lang="en"><b>Admin PWA</b> (React 19) — Dashboard, Employees, per-employee detail and Modules editor; installable, works like a native app</li>
+                <li data-lang="ru"><b>Админ-PWA</b> (React 19) — дашборд, сотрудники, карточка сотрудника и редактор модулей; ставится как приложение, работает как нативное</li>
+                <li data-lang="en">One <b>Hono REST API</b> serves the admin, backed by <b>Drizzle ORM + PostgreSQL</b> (employees, modules, quiz questions, progress)</li>
+                <li data-lang="ru">Единый <b>Hono REST API</b> обслуживает админку поверх <b>Drizzle ORM + PostgreSQL</b> (сотрудники, модули, вопросы, прогресс)</li>
+              </ul>
+            </div>
+
+            <div class="feat">
+              <h4><span data-lang="en">Engineering</span><span data-lang="ru">Инженерия</span></h4>
+              <ul>
+                <li data-lang="en"><b>Bun monorepo</b> — <code>bot</code>, <code>admin</code> and a <code>shared</code> types package, so the same types flow across the bot and the admin with no drift</li>
+                <li data-lang="ru"><b>Bun-монорепо</b> — <code>bot</code>, <code>admin</code> и пакет общих типов <code>shared</code>: одни и те же типы ходят между ботом и админкой без рассинхрона</li>
+                <li data-lang="en">Migrations generated and applied via Drizzle; deploys on managed PostgreSQL (Railway)</li>
+                <li data-lang="ru">Миграции генерируются и применяются через Drizzle; деплой на managed PostgreSQL (Railway)</li>
+                <li data-lang="en">A crafted design system (Playfair Display + Inter, luxury-minimalist) — a product that looks sold, not internal</li>
+                <li data-lang="ru">Проработанный дизайн-система (Playfair Display + Inter, luxury-minimalist) — продукт выглядит как товар, а не внутренняя утилита</li>
+              </ul>
+            </div>
+          </div>
+          <div class="aside">
+            <div class="facts">
+              <dl>
+                <dt><span data-lang="en">Role</span><span data-lang="ru">Роль</span></dt><dd><span data-lang="en">Solo</span><span data-lang="ru">Соло</span></dd>
+                <dt><span data-lang="en">Type</span><span data-lang="ru">Тип</span></dt><dd><span data-lang="en">Onboarding SaaS</span><span data-lang="ru">Онбординг-SaaS</span></dd>
+                <dt><span data-lang="en">Deploy</span><span data-lang="ru">Деплой</span></dt><dd>Railway · PostgreSQL</dd>
+              </dl>
+            </div>
+            <div>
+              <div class="mono" style="margin-bottom:8px"><span data-lang="en">Stack</span><span data-lang="ru">Стек</span></div>
+              <div class="chips"><span class="chip">Bun</span><span class="chip">grammY</span><span class="chip">Hono</span><span class="chip">Drizzle ORM</span><span class="chip">PostgreSQL</span><span class="chip">React 19</span><span class="chip">Vite</span><span class="chip">Tailwind v4</span><span class="chip">PWA</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="arch">
+          <div class="arch-cap"><span data-lang="en">Flow · a new hire onboarded end-to-end</span><span data-lang="ru">Поток · новичок онбордится под ключ</span></div>
+          <div class="flow">
+            <div class="step">
+              <div class="st"><span data-lang="en">New hire</span><span data-lang="ru">Новичок</span></div>
+              <div class="sd"><span data-lang="en">opens the Telegram bot</span><span data-lang="ru">открывает бота в Telegram</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Modules + quizzes</span><span data-lang="ru">Модули + квизы</span></div>
+              <div class="sd"><span data-lang="en">6 modules · answers checked</span><span data-lang="ru">6 модулей · ответы проверяются</span></div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+              <div class="st"><span data-lang="en">Progress saved</span><span data-lang="ru">Прогресс сохранён</span></div>
+              <div class="sd">Drizzle · PostgreSQL</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step hi">
+              <div class="st"><span data-lang="en">Admin PWA</span><span data-lang="ru">Админ-PWA</span></div>
+              <div class="sd"><span data-lang="en">who's done what, at a glance</span><span data-lang="ru">кто что прошёл — сразу видно</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- MORE PROJECTS -->
@@ -777,11 +861,6 @@
       <span class="rule"></span>
     </div>
     <div class="grid-more">
-      <div class="mcard">
-        <h4>ENTRADA</h4>
-        <p><span data-lang="en">Employee-onboarding Telegram bot, sold as SaaS to SMB clients.</span><span data-lang="ru">Telegram-бот онбординга сотрудников, продаётся как SaaS малому бизнесу.</span></p>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Telegram API</span><span class="chip">SaaS</span></div>
-      </div>
       <div class="mcard">
         <h4>Akasha</h4>
         <p><span data-lang="en">AI consultant — numerology &amp; tarot, with a cost calculator and content engine.</span><span data-lang="ru">AI-консультант — нумерология и таро, с калькулятором и контент-движком.</span></p>
